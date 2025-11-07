@@ -1,0 +1,417 @@
+[2025-11-07T10:42:21.483] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T10:43:55.198] [INFO] default - Access about page successful
+[2025-11-07T10:49:19.163] [INFO] default - Access about page successful
+[2025-11-07T10:50:38.221] [INFO] default - Access about page successful
+[2025-11-07T10:50:40.029] [INFO] default - Access about page successful
+[2025-11-07T10:50:41.981] [INFO] default - Access about page successful
+[2025-11-07T11:17:58.540] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T11:24:32.595] [INFO] default - get Rubik successful
+[2025-11-07T11:38:48.872] [INFO] default - get Rubik successful
+[2025-11-07T11:38:55.393] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T11:39:06.860] [INFO] default - get product-detail Rubik’s Connector Snake 2-Pack successfull
+[2025-11-07T11:40:13.008] [INFO] default - get Rubik successful
+[2025-11-07T11:40:30.313] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T11:43:23.711] [INFO] default - Access about page successful
+[2025-11-07T11:43:25.024] [INFO] default - get Rubik successful
+[2025-11-07T11:43:26.702] [INFO] default - get product-detail Rubiks Coach Cube successfull
+[2025-11-07T11:43:30.551] [INFO] default - get product-detail Rubiks Connector Snake 2 Pack successfull
+[2025-11-07T11:43:40.179] [INFO] default - get product-detail Rubiks Connector Snake 2 Pack successfull
+[2025-11-07T11:46:05.230] [INFO] default - Access about page successful
+[2025-11-07T11:46:06.781] [INFO] default - get Rubik successful
+[2025-11-07T11:46:08.510] [INFO] default - get product-detail Rubiks Connector Snake 2 Pack successfull
+[2025-11-07T11:46:18.253] [INFO] default - get Rubik successful
+[2025-11-07T11:46:25.118] [INFO] default - get product-detail Rubiks Coach Cube successfull
+[2025-11-07T11:46:44.046] [INFO] default - get Rubik successful
+[2025-11-07T11:46:56.910] [INFO] default - get Rubik successful
+[2025-11-07T11:46:58.661] [INFO] default - get Rubik successful
+[2025-11-07T11:47:06.496] [INFO] default - get product-detail Rubiks Retro successfull
+[2025-11-07T11:47:39.038] [INFO] default - get product-detail Rubiks Connector Snake 2 Pack successfull
+[2025-11-07T11:48:40.289] [INFO] default - get Rubik successful
+[2025-11-07T11:48:41.071] [INFO] default - Access about page successful
+[2025-11-07T11:48:55.191] [INFO] default - Access about page successful
+[2025-11-07T11:48:58.145] [INFO] default - Access about page successful
+[2025-11-07T11:48:59.988] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T11:49:00.026] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T11:49:00.047] [INFO] default - get product-detail Rubik’s Apprentice 2x2 successfull
+[2025-11-07T11:50:24.993] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T11:50:25.048] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T11:50:25.106] [INFO] default - get product-detail Rubik’s Apprentice 2x2 successfull
+[2025-11-07T11:50:42.450] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T11:50:42.498] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T11:50:42.526] [INFO] default - get product-detail Rubik’s Apprentice 2x2 successfull
+[2025-11-07T11:57:10.791] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T11:57:18.161] [INFO] default - get Rubik successful
+[2025-11-07T11:57:18.374] [INFO] default - get Rubik successful
+[2025-11-07T11:57:22.864] [INFO] default - get product-detail Rubiks Coach Cube successfull
+[2025-11-07T11:57:29.466] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T11:57:29.551] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T11:57:29.598] [INFO] default - get product-detail Rubik’s Apprentice 2x2 successfull
+[2025-11-07T11:57:46.816] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T11:57:48.102] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T11:57:48.130] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T11:57:48.142] [INFO] default - get product-detail Rubik’s Apprentice 2x2 successfull
+[2025-11-07T11:57:52.844] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T11:57:52.879] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T11:57:54.519] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T11:57:54.543] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T11:57:54.564] [INFO] default - get product-detail Rubik’s Apprentice 2x2 successfull
+[2025-11-07T11:57:56.928] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T11:57:57.094] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T11:57:57.132] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T11:57:57.151] [INFO] default - get product-detail Rubik’s Apprentice 2x2 successfull
+[2025-11-07T11:58:04.411] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T11:58:44.815] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T11:58:44.834] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T11:58:44.865] [INFO] default - get product-detail Rubik’s Apprentice 2x2 successfull
+[2025-11-07T11:58:45.789] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T11:58:47.728] [INFO] default - get product-detail Rubiks Coach Cube successfull
+[2025-11-07T11:58:55.686] [INFO] default - get product-detail Rubiks Coach Cube successfull
+[2025-11-07T11:59:28.145] [INFO] default - get product-detail Rubiks Coach Cube successfull
+[2025-11-07T12:01:08.377] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T12:02:53.422] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T12:03:17.502] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T12:04:28.161] [INFO] default - Access about page successful
+[2025-11-07T12:04:38.882] [INFO] default - get Rubik successful
+[2025-11-07T14:34:56.436] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T14:35:35.413] [INFO] default - Access about page successful
+[2025-11-07T14:35:42.290] [INFO] default - get Rubik successful
+[2025-11-07T14:36:31.508] [INFO] default - get Rubik successful
+[2025-11-07T14:36:39.000] [INFO] default - get Rubik successful
+[2025-11-07T14:36:40.976] [INFO] default - get Rubik successful
+[2025-11-07T14:36:57.388] [INFO] default - get Rubik successful
+[2025-11-07T14:37:35.928] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T14:40:46.527] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T14:41:31.109] [INFO] default - get product-detail Rubiks Apprentice 2x2 successfull
+[2025-11-07T14:41:36.951] [INFO] default - get product-detail Rubiks Apprentice 2x2 successfull
+[2025-11-07T14:41:38.211] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T14:50:16.201] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T14:50:58.932] [INFO] default - get product-detail Rubiks Coach Cube successfull
+[2025-11-07T14:51:01.114] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T14:51:01.268] [INFO] default - get product-detail Rubiks Coach Cube successfull
+[2025-11-07T14:51:41.558] [INFO] default - get product-detail Rubiks Coach Cube successfull
+[2025-11-07T14:51:42.654] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T14:57:32.104] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T14:57:59.545] [INFO] default - get product-detail Rubiks Coach Cube successfull
+[2025-11-07T14:59:20.105] [INFO] default - get product-detail Rubiks Coach Cube successfull
+[2025-11-07T14:59:29.181] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T15:00:13.138] [INFO] default - get product-detail Rubiks Coach Cube successfull
+[2025-11-07T15:00:17.280] [INFO] default - get Rubik successful
+[2025-11-07T15:00:18.481] [INFO] default - get product-detail Rubiks Connector Snake 2 Pack successfull
+[2025-11-07T15:00:23.984] [INFO] default - get product-detail Rubiks Apprentice 2x2 successfull
+[2025-11-07T15:00:26.334] [INFO] default - get product-detail Rubiks Coach Cube successfull
+[2025-11-07T15:00:38.855] [INFO] default - get product-detail Rubiks Apprentice 2x2 successfull
+[2025-11-07T15:00:43.099] [INFO] default - get product-detail Rubiks 3x3 Phantom successfull
+[2025-11-07T15:00:53.107] [INFO] default - get Rubik successful
+[2025-11-07T15:00:54.714] [INFO] default - get product-detail Rubiks 3x3 successfull
+[2025-11-07T15:00:57.951] [INFO] default - get product-detail Rubiks Connector Snake 2 Pack successfull
+[2025-11-07T15:02:18.876] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T15:02:25.358] [INFO] default - get product-detail Rubiks Connector Snake 2 Pack successfull
+[2025-11-07T15:02:51.683] [INFO] default - get product-detail Rubiks Connector Snake 2 Pack successfull
+[2025-11-07T15:02:55.030] [INFO] default - get product-detail Rubiks Connector Snake 2 Pack successfull
+[2025-11-07T15:02:57.792] [INFO] default - get product-detail Rubiks Apprentice 2x2 successfull
+[2025-11-07T15:02:58.150] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T15:03:09.585] [INFO] default - get product-detail Rubiks Connector Snake 2 Pack successfull
+[2025-11-07T15:05:08.660] [INFO] default - get product-detail Rubiks Connector Snake 2 Pack successfull
+[2025-11-07T15:05:14.571] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T15:06:19.001] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T15:06:57.261] [INFO] default - get product-detail Rubiks Connector Snake 2 Pack successfull
+[2025-11-07T15:06:58.836] [INFO] default - get product-detail Rubiks Connector Snake 2 Pack successfull
+[2025-11-07T15:06:59.345] [INFO] default - get product-detail Rubiks Connector Snake 2 Pack successfull
+[2025-11-07T15:07:01.429] [INFO] default - get product-detail Rubiks Coach Cube successfull
+[2025-11-07T15:07:04.234] [INFO] default - get product-detail Rubiks Connector Snake 2 Pack successfull
+[2025-11-07T15:07:10.325] [INFO] default - get product-detail Rubiks Coach Cube successfull
+[2025-11-07T15:07:12.171] [INFO] default - get Rubik successful
+[2025-11-07T15:07:14.208] [INFO] default - get product-detail Rubiks Retro successfull
+[2025-11-07T15:07:24.812] [INFO] default - get Rubik successful
+[2025-11-07T15:08:22.288] [INFO] default - get product-detail Rubiks Apprentice 2x2 successfull
+[2025-11-07T15:08:26.938] [INFO] default - get product-detail Rubiks 3x3 Phantom successfull
+[2025-11-07T15:08:29.825] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T15:08:30.536] [INFO] default - get product-detail Rubiks Edge successfull
+[2025-11-07T15:08:44.265] [INFO] default - get product-detail Rubiks Edge successfull
+[2025-11-07T15:09:47.747] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T15:10:22.976] [INFO] default - get product-detail Rubiks Edge successfull
+[2025-11-07T15:11:37.144] [ERROR] default - Product not found: Rubiks Edge
+[2025-11-07T15:11:38.826] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T15:12:19.281] [ERROR] default - Product not found: Rubiks Edge
+[2025-11-07T15:13:00.537] [ERROR] default - Product not found: Rubiks Edge
+[2025-11-07T15:13:03.233] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T15:13:49.270] [ERROR] default - Product not found: Rubiks Edge
+[2025-11-07T15:13:50.339] [ERROR] default - Product not found: Rubiks Edge
+[2025-11-07T15:13:50.555] [ERROR] default - Product not found: Rubiks Edge
+[2025-11-07T15:13:57.806] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T15:14:41.865] [ERROR] default - Product not found: Rubiks Edge
+[2025-11-07T15:15:22.615] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T15:15:28.726] [ERROR] default - Product not found: Rubiks Edge
+[2025-11-07T15:16:17.238] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T15:16:35.054] [ERROR] default - Product not found: Rubiks Edge
+[2025-11-07T15:16:35.936] [ERROR] default - Product not found: Rubiks Edge
+[2025-11-07T15:16:36.182] [ERROR] default - Product not found: Rubiks Edge
+[2025-11-07T15:16:36.370] [ERROR] default - Product not found: Rubiks Edge
+[2025-11-07T15:16:36.549] [ERROR] default - Product not found: Rubiks Edge
+[2025-11-07T15:17:27.196] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T15:17:54.711] [INFO] default - get product-detail Rubiks 3x3 Phantom successfull
+[2025-11-07T15:17:56.721] [ERROR] default - Product not found: Rubiks Apprentice 2x2
+[2025-11-07T15:18:07.583] [ERROR] default - Product not found: Rubiks Edge
+[2025-11-07T15:19:33.520] [ERROR] default - Product not found: Rubiks Edge
+[2025-11-07T15:19:34.477] [ERROR] default - Product not found: Rubiks Edge
+[2025-11-07T15:19:42.158] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T15:22:41.914] [INFO] default - get Rubik successful
+[2025-11-07T15:22:45.033] [INFO] default - get product-detail Rubiks Cube It successfull
+[2025-11-07T15:22:49.954] [INFO] default - get product-detail Rubiks Connector Snake 2 Pack successfull
+[2025-11-07T15:22:51.210] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T15:23:38.038] [INFO] default - get Rubik successful
+[2025-11-07T15:23:49.166] [INFO] default - get Rubik successful
+[2025-11-07T15:23:58.650] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T15:23:58.694] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T15:23:58.735] [ERROR] default - Product not found: Rubik’s Apprentice 2x2
+[2025-11-07T15:24:00.478] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T15:24:00.516] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T15:24:00.529] [ERROR] default - Product not found: Rubik’s Apprentice 2x2
+[2025-11-07T15:24:06.997] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T15:24:15.251] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T15:24:15.428] [INFO] default - Access about page successful
+[2025-11-07T15:24:18.347] [INFO] default - Access about page successful
+[2025-11-07T15:24:21.995] [INFO] default - Access about page successful
+[2025-11-07T15:24:23.663] [INFO] default - get Rubik successful
+[2025-11-07T15:24:25.193] [INFO] default - get product-detail Rubiks Cube It successfull
+[2025-11-07T15:24:34.986] [INFO] default - get product-detail Rubiks Cube It successfull
+[2025-11-07T15:25:04.931] [INFO] default - get product-detail Rubiks Cube It successfull
+[2025-11-07T15:25:45.812] [INFO] default - get product-detail Rubiks Cube It successfull
+[2025-11-07T15:25:53.380] [INFO] default - Access about page successful
+[2025-11-07T15:25:55.791] [INFO] default - Access about page successful
+[2025-11-07T15:25:59.967] [INFO] default - get Rubik successful
+[2025-11-07T15:26:07.782] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T15:26:07.827] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T15:26:07.842] [ERROR] default - Product not found: Rubik’s Apprentice 2x2
+[2025-11-07T15:26:25.805] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T15:26:25.828] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T15:26:25.846] [ERROR] default - Product not found: Rubik’s Apprentice 2x2
+[2025-11-07T15:26:32.834] [INFO] default - get Rubik successful
+[2025-11-07T15:27:15.084] [INFO] default - get Rubik successful
+[2025-11-07T15:27:20.016] [INFO] default - get Rubik successful
+[2025-11-07T15:28:40.272] [INFO] default - Access about page successful
+[2025-11-07T15:30:47.171] [INFO] default - get Rubik successful
+[2025-11-07T15:31:18.084] [INFO] default - get Rubik successful
+[2025-11-07T15:31:31.781] [INFO] default - get product-detail Rubiks 3x3 successfull
+[2025-11-07T15:31:32.732] [INFO] default - get product-detail Rubiks 3x3 successfull
+[2025-11-07T15:31:34.795] [INFO] default - get product-detail Rubiks Coach Cube successfull
+[2025-11-07T15:31:38.138] [INFO] default - Access about page successful
+[2025-11-07T15:31:41.395] [INFO] default - get Rubik successful
+[2025-11-07T15:31:44.467] [INFO] default - get Rubik successful
+[2025-11-07T15:31:46.116] [INFO] default - get product-detail Rubiks Connector Snake 2 Pack successfull
+[2025-11-07T15:31:54.502] [INFO] default - get Rubik successful
+[2025-11-07T15:31:57.561] [INFO] default - Access about page successful
+[2025-11-07T15:37:31.352] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T15:37:50.499] [INFO] default - Access about page successful
+[2025-11-07T15:37:53.055] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T15:37:53.091] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T15:37:53.126] [ERROR] default - Product not found: Rubik’s Apprentice 2x2
+[2025-11-07T15:43:02.970] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T15:43:03.155] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T15:43:03.251] [ERROR] default - Product not found: Rubik’s Apprentice 2x2
+[2025-11-07T15:43:05.134] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T15:43:05.160] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T15:43:05.171] [ERROR] default - Product not found: Rubik’s Apprentice 2x2
+[2025-11-07T15:43:14.962] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T15:43:15.157] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T15:43:15.233] [ERROR] default - Product not found: Rubik’s Apprentice 2x2
+[2025-11-07T15:43:15.939] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T15:43:15.999] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T15:43:16.032] [ERROR] default - Product not found: Rubik’s Apprentice 2x2
+[2025-11-07T15:43:21.989] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T15:43:22.069] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T15:43:22.139] [ERROR] default - Product not found: Rubik’s Apprentice 2x2
+[2025-11-07T15:43:26.751] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T15:43:27.999] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T15:43:28.019] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T15:43:28.030] [ERROR] default - Product not found: Rubik’s Apprentice 2x2
+[2025-11-07T15:43:32.823] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T15:43:32.862] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T15:43:34.589] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T15:43:34.609] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T15:43:34.620] [ERROR] default - Product not found: Rubik’s Apprentice 2x2
+[2025-11-07T15:43:36.269] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T15:43:36.335] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T15:44:15.844] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T15:44:16.091] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T15:44:18.020] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T15:44:18.040] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T15:44:18.054] [ERROR] default - Product not found: Rubik’s Apprentice 2x2
+[2025-11-07T15:44:19.331] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T15:44:19.347] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T15:44:20.496] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T15:44:20.511] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T15:44:20.523] [ERROR] default - Product not found: Rubik’s Apprentice 2x2
+[2025-11-07T15:44:22.351] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T15:44:22.389] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T15:44:25.322] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T15:44:25.351] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T15:44:25.363] [ERROR] default - Product not found: Rubik’s Apprentice 2x2
+[2025-11-07T15:45:56.759] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T15:45:57.038] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T15:45:57.081] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T15:45:57.198] [ERROR] default - Product not found: Rubik’s Apprentice 2x2
+[2025-11-07T16:16:44.788] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T16:18:31.458] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T16:18:48.650] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T16:18:49.235] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T16:19:06.516] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T16:19:06.738] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T16:20:36.019] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T16:20:36.241] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T16:21:13.599] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T16:22:13.789] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T16:22:14.242] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T16:22:34.077] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T16:22:34.467] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T16:22:36.816] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T16:22:37.107] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T16:22:52.179] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T16:22:52.463] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T16:23:08.906] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T16:23:09.202] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T16:23:17.356] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T16:23:17.502] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T16:25:37.773] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T16:25:38.101] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T16:26:21.761] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T16:26:22.075] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T16:26:39.794] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T16:26:40.237] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T16:26:53.759] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T16:26:54.105] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T16:31:13.549] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T16:31:13.908] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T16:31:27.451] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T16:31:27.678] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T16:44:38.110] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T16:51:04.874] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T16:51:06.302] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T16:51:49.039] [INFO] default - Access about page successful
+[2025-11-07T16:51:53.677] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T16:51:53.706] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T16:51:53.734] [INFO] default - get product-detail Rubik’s Apprentice 2x2 successfull
+[2025-11-07T16:51:57.271] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T16:51:57.298] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T16:51:57.314] [INFO] default - get product-detail Rubik’s Apprentice 2x2 successfull
+[2025-11-07T16:55:03.703] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T16:55:11.913] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T16:55:11.947] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T16:55:11.987] [INFO] default - get product-detail Rubik’s Apprentice 2x2 successfull
+[2025-11-07T16:55:14.649] [INFO] default - get Rubik successful
+[2025-11-07T16:55:16.372] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T16:55:16.400] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T16:55:16.428] [INFO] default - get product-detail Rubik’s Apprentice 2x2 successfull
+[2025-11-07T16:55:32.431] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T16:55:32.466] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T16:55:32.480] [INFO] default - get product-detail Rubik’s Apprentice 2x2 successfull
+[2025-11-07T16:55:33.115] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T16:55:33.149] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T16:55:33.166] [INFO] default - get product-detail Rubik’s Apprentice 2x2 successfull
+[2025-11-07T16:55:55.521] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T16:55:55.550] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T16:55:55.568] [INFO] default - get product-detail Rubik’s Apprentice 2x2 successfull
+[2025-11-07T16:56:36.417] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T16:56:36.546] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T16:56:36.565] [INFO] default - get product-detail Rubik’s Apprentice 2x2 successfull
+[2025-11-07T16:56:38.577] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T16:56:38.603] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T16:56:38.632] [INFO] default - get product-detail Rubik’s Apprentice 2x2 successfull
+[2025-11-07T16:56:41.587] [INFO] default - get Rubik successful
+[2025-11-07T16:57:00.919] [INFO] default - Access about page successful
+[2025-11-07T16:57:02.456] [INFO] default - Access about page successful
+[2025-11-07T16:57:03.263] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T16:57:03.325] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T16:57:03.353] [INFO] default - get product-detail Rubik’s Apprentice 2x2 successfull
+[2025-11-07T16:57:23.982] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T16:57:24.035] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T16:57:24.100] [INFO] default - get product-detail Rubik’s Apprentice 2x2 successfull
+[2025-11-07T16:57:31.635] [INFO] default - Access about page successful
+[2025-11-07T16:57:57.142] [INFO] default - Access about page successful
+[2025-11-07T16:57:58.585] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T16:57:58.637] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T16:57:58.666] [INFO] default - get product-detail Rubik’s Apprentice 2x2 successfull
+[2025-11-07T16:58:05.403] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T16:58:05.440] [INFO] default - get product-detail Rubik’s Apprentice 2x2 successfull
+[2025-11-07T16:59:17.974] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T16:59:18.030] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T16:59:18.088] [INFO] default - get product-detail Rubik’s Apprentice 2x2 successfull
+[2025-11-07T16:59:18.097] [ERROR] default - Your account has been login from another place.
+[2025-11-07T16:59:25.016] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T16:59:25.047] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T16:59:25.066] [INFO] default - get product-detail Rubik’s Apprentice 2x2 successfull
+[2025-11-07T16:59:31.014] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T16:59:31.038] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T16:59:31.067] [INFO] default - get product-detail Rubik’s Apprentice 2x2 successfull
+[2025-11-07T16:59:37.920] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T16:59:37.941] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T16:59:37.954] [INFO] default - get product-detail Rubik's Apprentice 2x2 successfull
+[2025-11-07T16:59:51.933] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T16:59:51.975] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T16:59:51.994] [INFO] default - get product-detail Rubik's Apprentice 2x2 successfull
+[2025-11-07T17:01:09.024] [INFO] default - Access about page successful
+[2025-11-07T17:01:10.734] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T17:01:10.770] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T17:01:10.799] [INFO] default - get product-detail Rubik's Apprentice 2x2 successfull
+[2025-11-07T17:01:56.788] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T17:03:31.042] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T17:03:31.284] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T17:03:32.019] [ERROR] default - Your account has been login from another place.
+[2025-11-07T17:03:32.080] [ERROR] default - Your account has been login from another place.
+[2025-11-07T17:03:32.117] [ERROR] default - Your account has been login from another place.
+[2025-11-07T17:03:48.754] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T17:03:49.003] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T17:03:53.748] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T17:03:54.023] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T17:04:09.748] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T17:04:09.995] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T17:04:32.812] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T17:04:33.050] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T17:04:48.175] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T17:04:48.363] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T17:04:59.951] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T17:05:00.144] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T17:05:06.691] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T17:05:06.916] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T17:08:45.535] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T17:08:45.559] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T17:08:45.576] [INFO] default - get product-detail Rubik's Apprentice 2x2 successfull
+[2025-11-07T17:08:49.155] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T17:08:51.285] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T17:08:59.273] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T17:08:59.295] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T17:08:59.307] [INFO] default - get product-detail Rubik's Apprentice 2x2 successfull
+[2025-11-07T17:09:28.790] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T17:10:09.001] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T17:10:09.086] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T17:10:11.590] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T17:10:11.798] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T17:10:11.817] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T17:10:11.832] [INFO] default - get product-detail Rubik's Apprentice 2x2 successfull
+[2025-11-07T17:10:13.182] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T17:10:13.199] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T17:13:59.773] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T17:14:00.270] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T17:14:08.480] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T17:14:08.715] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T17:14:19.805] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T17:14:20.201] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T17:15:03.771] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T17:15:03.933] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T17:15:25.758] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T17:15:25.936] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T17:17:23.672] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T17:17:23.848] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T17:17:23.916] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T17:17:23.951] [INFO] default - get product-detail Rubik's Apprentice 2x2 successfull
+[2025-11-07T17:17:26.325] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T17:19:07.743] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T17:19:07.992] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T17:19:27.233] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T17:19:27.457] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T17:19:46.275] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T17:19:46.445] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T17:20:11.471] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T17:20:11.591] [INFO] default - get Rubik successful
+[2025-11-07T17:20:21.618] [INFO] default - get Rubik successful
+[2025-11-07T17:20:22.377] [INFO] default - Access about page successful

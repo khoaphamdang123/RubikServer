@@ -40,7 +40,7 @@ function onError(error) {
     return password_hashed;
   }
   function onListening() {
-    var addr = server.address();
+    var addr = server.address();    
     var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
     var password_hashed=hashBcrypt("Helloman123456!@#");
     console.log(password_hashed);

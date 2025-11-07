@@ -2,7 +2,7 @@ import mongoose, { mongo } from "mongoose";
 var autoIncrement=require('mongoose-auto-increment');
 const {Schema}=mongoose;
 const userSchema=new Schema({
-    _id:{type:Number,required:false},
+    _id:{type:Number,required:false,unique:true},
     username:{type:String,required:true},
     password:{type:String,require:true},
     gender:{type:String,required:true},
@@ -78,6 +78,7 @@ const userRoomDetailSchema=new Schema({
     status:{type:String,required:true}
 });
 
+
 const rubikInfoSchema = new Schema({
     _id:{type:Number,required:false},
     name:{type:String,required:true},
@@ -85,6 +86,14 @@ const rubikInfoSchema = new Schema({
     avatar:{type:String,required:true},
     feature:{type:String,required:true}
 })
+
+
+const socialNetworkAccountSchema=new Schema({
+    _id:{type:Number,required:false},
+    username:{type:String,required:true},
+    display_name:{type:String,required:true},
+    social_type:{type:String,required:true}
+});
 
 const deviceSchema = new Schema(
 {
@@ -122,7 +131,6 @@ const roleSchema=new Schema({
     role_type:{type:String,required:true}
 });
 
-
 const question_level=mongoose.model('question',questionLevelSchema,'QuestionLevel');
 
 roomSchema.plugin(autoIncrement.plugin,'room');
@@ -141,6 +149,8 @@ roleSchema.plugin(autoIncrement.plugin,'role');
 
 tempDeviceSchema.plugin(autoIncrement.plugin,'tempDevice');
 
+socialNetworkAccountSchema.plugin(autoIncrement.plugin,'socialNetworkAccount');
+
 const room_user=mongoose.model('room',roomSchema,'Room');
 
 const user_room_detail=mongoose.model('userRoomDetail',userRoomDetailSchema,'UserRoomDetail');
@@ -149,16 +159,17 @@ const single_board_detail=mongoose.model('singleBoardDetail',singleBoardDetailSc
 
 const rubik_info=mongoose.model('rubikInfo',rubikInfoSchema,'RubikInfo');
 
-
 const device=mongoose.model('device',deviceSchema,'Device');
 
 const temp_device=mongoose.model('tempDevice',tempDeviceSchema,'TempDevice');
+
+const social_account=mongoose.model('socialNetworkAccount',socialNetworkAccountSchema,'SocialNetworkAccount');
 
 const image_detail=mongoose.model('detailImage',detailImageSchema,'DetailImage');
 
 const role=mongoose.model('role',roleSchema,'Role');
 
-export {user,question_level,room_user,user_room_detail,single_board_detail,rubik_info,image_detail,session,temp_device,device,rubikProblem,rubikProblemDetail,role}; 
+export {user,question_level,room_user,user_room_detail,single_board_detail,rubik_info,image_detail,session,temp_device,device,rubikProblem,social_account,rubikProblemDetail,role}; 
 
 
 

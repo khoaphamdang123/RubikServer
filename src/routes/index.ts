@@ -1,5 +1,5 @@
 import * as express from 'express'
-import {user,room_user,user_room_detail,rubik_info,image_detail,session,role,rubikProblem,rubikProblemDetail,temp_device,device} from '../models/user_model';
+import {user,room_user,user_room_detail,rubik_info,image_detail,social_account,session,role,rubikProblem,rubikProblemDetail,temp_device,device} from '../models/user_model';
 import checkingDuplicateUserNameOrEmail from '../config/checking';
 import {token_checking,email_token_checking} from '../config/checkingToken';
 import {username,password,loginUrl,registerServerUrl} from './gmail_account';
@@ -8,6 +8,7 @@ import { Kafka } from 'kafkajs';
 import { Body } from 'twilio/lib/twiml/MessagingResponse';
 import { resolveSoa } from 'dns';
 import { text } from 'stream/consumers';
+import { Console } from 'console';
 const logger=require('../logger/index');
 var router = express.Router();
 var config=require('../config/auth');
@@ -35,7 +36,7 @@ const fs_promise = require('fs').promises;
 
 const kafka=new Kafka({
   clientId:"Rubik-BE",
-  brokers:['localhost:9092','localhost:9092']
+  brokers:[process.env.KAFKA_BROKER,process.env.KAFKA_BROKER]
 });
 // const storage = multer.diskStorage(
 //   {
@@ -87,7 +88,7 @@ const mqttInit=async()=>{
    await consumer_run();
   }
   catch(err)
-  {
+  { console.log("Broker Server is:"+process.env.KAFKA_BROKER);
     console.log("MQTT INIT FAILED:"+err.message);
     logger.error("MQTT INIT FAILED:"+err.message);
   }
@@ -228,7 +229,7 @@ const checkValidPhone=(phone:string):boolean=>
 {
   const pattern = /^[+]{1}(?:[0-9\-\\(\\)\\/.]\s?){6,15}[0-9]{1}$/;
   var reg=new RegExp(pattern);
-  return reg.test(phone); 
+  return reg.test(phone);
 }
 const deleteHandledImage=async(images:string[])=>
 {
@@ -286,7 +287,8 @@ const transportEmail=nodemailer.createTransport({
 
 const hbs=require('nodemailer-express-handlebars');
 const handlebarsOption={
-    viewEngine :{
+    viewEngine :
+    {
         partialsDir: path.resolve('../sudokusv/src/views/'),
         defaultLayout: false,
     },
@@ -357,15 +359,17 @@ const convertRubikAnno=(colors:string[])=>
   try
   { 
     var res='';
+
      for(let color of colors)
      { 
        var convert_color=colorToFace(color);
+
        if(convert_color!='')
        {
         res+=convert_color;
        }
      }
-     return res;
+     return res;          
   }
   catch(error)
   { 
@@ -645,7 +649,18 @@ catch(err)
 }
 });
 
-
+const hashBcrypt=(password:string)=>
+  { var password_hashed='';
+    try
+    {
+    password_hashed=bcrypt.hashSync(password,8);
+    }
+    catch(error)
+    {
+      console.log(error.message);
+    }
+    return password_hashed;
+  }
 
 router.post('/login',function (req,res,next){
  try
@@ -654,6 +669,7 @@ router.post('/login',function (req,res,next){
    console.log("Password here is:"+req.body.password);
    var ip_addr=req.body.ip_addr;
    var city=req.body.city;
+   var type=req.body.type;
   //   var user_object=
   //   {
   //    username:'helloman123',
@@ -694,7 +710,81 @@ router.post('/login',function (req,res,next){
   //       throw err;
   //     }
   //   });
-    
+   if(type!=null)
+    {
+      console.log("Type value here is:"+type);
+      var username=req.body.username;
+      var password=req.body.password;
+      if(type=='Google')
+        {
+      user.findOne({email:username}).exec(async(err,userr)=>{
+        if(err)
+          {    
+              console.log("Error while fetching user");
+              return;
+          }
+          if(!userr)
+            {
+           var created_date=DateTime.now().toLocaleString(DateTime.DATETIME_FULL_WITH_SECONDS);
+            var hash_password=hashBcrypt(password);
+            await social_account.create({username:username,display_name:username,social_type:type});
+            await user.create({username:username,gender:'undefined',email:username,phone:'01217926739',avatar:'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png',
+            created_date:created_date,last_active:created_date,last_action:created_date,is_checking:false,role_id:0,password:hash_password});
+            var user_ob=await user.findOne({username:username});
+            const jwt_payload=
+            {
+                user_id:user_ob._id,
+                username:user_ob.username
+                
+            }
+      
+            var token=jwt.sign(jwt_payload,config.secret,{expiresIn:'1h'});
+            const existingToken=await session.findOne({user_name:username});
+            var created_time=DateTime.now().toLocaleString(DateTime.DATETIME_FULL_WITH_SECONDS);
+            if(existingToken)
+              {
+               await session.updateOne({user_name:username},{$set:{token:token,created_time:created_time,ip_address:ip_addr,city:city}});
+              }
+            else
+            {
+             await session.create({user_name:username,token:token,created_time:created_time,ip_address:ip_addr,city:city});
+            }
+            req.session.token=token;
+            return res.status(200).send({message:"Đăng nhập thành công",token:req.session.token,data:user_ob});
+            }
+            else
+            {
+              var passwordIsValid=bcrypt.compareSync(req.body.password,userr.password);
+              if(!passwordIsValid)
+              {  
+                  return res.status(401).send({message:"Password is invalid"});
+              }
+              
+              const jwt_payload=
+              {
+                  user_id:userr.id,
+                  username:userr.username
+              }
+          
+              var token=jwt.sign(jwt_payload,config.secret,{expiresIn:'1h'});
+              var created_time=DateTime.now().toLocaleString(DateTime.DATETIME_FULL_WITH_SECONDS);
+              const existingToken=await session.findOne({user_name:userr.username});
+              if(existingToken)
+                {
+                 await session.updateOne({user_name:userr.username},{$set:{token:token,created_time:created_time,ip_address:ip_addr,city:city}});
+                }
+              else
+              {
+               await session.create({user_name:userr.username,token:token,created_time:created_time,ip_address:ip_addr,city:city});
+              }
+              req.session.token=token;
+              return res.status(200).send({message:"Đăng nhập thành công",token:req.session.token,data:userr});
+            }
+      });    
+        }
+       return;
+    }
+        
     user.findOne({username:req.body.username}).exec(async(err,userr)=>{
         if(err)
         {    
@@ -1189,7 +1279,15 @@ router.get('/product-details/:id',token_checking,async function(req,res,next){
 
   console.log("did here");
   console.log("rubik_id here is:"+rubik_id);
-  await rubik_info.findOne({name:rubik_id}).exec((err,ele)=>
+  
+  const escapedName = rubik_id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  // Make apostrophes optional - handles both "Rubiks" and "Rubik's"
+  const normalizedName = escapedName.replace(/(Rubik)s/gi, "$1['']?s");
+  const regex = new RegExp(`^${normalizedName}$`, "i");
+
+console.log(regex);
+
+  await rubik_info.findOne({name:regex}).exec((err,ele)=>
   {
    if(err)
    {
@@ -1201,13 +1299,15 @@ router.get('/product-details/:id',token_checking,async function(req,res,next){
   });
  }
  catch(error)
- {   var rubik_id=req.params.id;
-
+ { 
+  var rubik_id=req.params.id;
   logger.error('Get product detail '+rubik_id+' failed:'+error.message);
   res.status(401).send({status:false,message:error.message});
   console.log("Get rubik by id error:"+error.message);
  }
 });
+
+
 
 
 

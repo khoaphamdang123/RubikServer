@@ -1,7 +1,8 @@
 import mongoose, { mongo } from "mongoose";
 require('dotenv').config();
 const Connection=()=>{
-    const URL=process.env.DATABASE_URI;
+    const URL=process.env.DATABASE_URI_BACKUP;
+    console.log("Database URL:",URL);
     try{
 
         mongoose.connect(URL);
