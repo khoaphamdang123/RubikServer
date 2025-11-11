@@ -415,3 +415,24 @@
 [2025-11-07T17:20:11.591] [INFO] default - get Rubik successful
 [2025-11-07T17:20:21.618] [INFO] default - get Rubik successful
 [2025-11-07T17:20:22.377] [INFO] default - Access about page successful
+[2025-11-07T17:24:53.073] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T17:25:45.091] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-07T17:28:28.096] [INFO] default - Access about page successful
+[2025-11-07T17:28:31.085] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T17:28:31.121] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T17:28:31.141] [INFO] default - get product-detail Rubik's Apprentice 2x2 successfull
+[2025-11-07T17:28:34.330] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T17:29:11.892] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T17:29:12.035] [INFO] default - Access about page successful
+[2025-11-07T17:29:15.120] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-07T17:29:15.168] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-07T17:29:15.189] [INFO] default - get product-detail Rubik's Apprentice 2x2 successfull
+[2025-11-07T17:29:18.156] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-07T17:32:46.569] [INFO] default - Close Log SSE Successfully.
+[2025-11-07T17:32:46.749] [INFO] default - Access about page successful
+[2025-11-07T17:32:55.116] [INFO] default - Access about page successful
+[2025-11-07T17:32:58.362] [INFO] default - get Rubik successful
+[2025-11-07T17:35:03.153] [INFO] default - get Rubik successful
+[2025-11-07T17:35:41.469] [INFO] default - get Rubik successful
+[2025-11-07T17:35:48.928] [INFO] default - get Rubik successful
+[2025-11-07T17:35:53.794] [INFO] default - get Rubik successful

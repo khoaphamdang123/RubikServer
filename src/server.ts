@@ -36,8 +36,9 @@ function onError(error) {
     catch(error)
     {
       console.log(error.message);
+      
     }
-    return password_hashed;
+    return password_hashed;    
   }
   function onListening() {
     var addr = server.address();    
@@ -45,4 +46,52 @@ function onError(error) {
     var password_hashed=hashBcrypt("Helloman123456!@#");
     console.log(password_hashed);
     console.log("Server Running on Port:", port);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   }

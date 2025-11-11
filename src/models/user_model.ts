@@ -1,4 +1,6 @@
+import { createDecipheriv } from "crypto";
 import mongoose, { mongo } from "mongoose";
+import { SettingsUpdateInstance } from "twilio/lib/rest/supersim/v1/settingsUpdate";
 var autoIncrement=require('mongoose-auto-increment');
 const {Schema}=mongoose;
 const userSchema=new Schema({
@@ -84,8 +86,20 @@ const rubikInfoSchema = new Schema({
     name:{type:String,required:true},
     description:{type:String,required:true},
     avatar:{type:String,required:true},
-    feature:{type:String,required:true}
+    feature:{type:String,required:true},
+    category_id:{type:Number,required:false}
 })
+
+const categorySchema = new Schema({
+_id:{type:Number,required:false},
+category_name:{type:String,required:true},
+created_date:{type:String,required:true},
+updated_date:{type:String,required:true}
+});
+
+categorySchema.plugin(autoIncrement.plugin,'category');
+
+const category=mongoose.model('category',categorySchema,'Category');
 
 
 const socialNetworkAccountSchema=new Schema({
@@ -169,7 +183,7 @@ const image_detail=mongoose.model('detailImage',detailImageSchema,'DetailImage')
 
 const role=mongoose.model('role',roleSchema,'Role');
 
-export {user,question_level,room_user,user_room_detail,single_board_detail,rubik_info,image_detail,session,temp_device,device,rubikProblem,social_account,rubikProblemDetail,role}; 
+export {user,question_level,room_user,user_room_detail,single_board_detail,rubik_info,image_detail,session,temp_device,device,rubikProblem,social_account,rubikProblemDetail,category,role}; 
 
 
 
