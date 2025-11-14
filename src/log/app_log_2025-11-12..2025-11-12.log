@@ -1,0 +1,71 @@
+[2025-11-12T11:54:33.376] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-12T11:57:29.886] [INFO] default - Close Log SSE Successfully.
+[2025-11-12T11:59:16.567] [INFO] default - Access about page successful
+[2025-11-12T11:59:18.336] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-12T11:59:18.364] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-12T11:59:18.381] [INFO] default - get product-detail Rubik's Apprentice 2x2 successfull
+[2025-11-12T11:59:19.884] [INFO] default - Close Log SSE Successfully.
+[2025-11-12T11:59:19.923] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-12T12:04:59.945] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-12T12:05:55.385] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-12T12:06:09.621] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-12T12:14:18.797] [INFO] default - Close Log SSE Successfully.
+[2025-11-12T12:14:23.614] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-12T12:14:24.084] [INFO] default - Close Log SSE Successfully.
+[2025-11-12T12:14:24.696] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-12T12:14:31.749] [INFO] default - Close Log SSE Successfully.
+[2025-11-12T12:14:31.948] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-12T12:14:41.842] [INFO] default - Close Log SSE Successfully.
+[2025-11-12T12:14:42.030] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-12T12:14:52.162] [INFO] default - Close Log SSE Successfully.
+[2025-11-12T12:14:52.431] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman123
+[2025-11-12T14:05:32.376] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-12T14:06:28.920] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-12T14:09:42.893] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-12T14:10:41.261] [ERROR] default - Admin login failed: User helloman123 is not an admin (role: User)
+[2025-11-12T14:10:43.064] [ERROR] default - Admin login failed: User helloman123 is not an admin (role: User)
+[2025-11-12T14:10:43.685] [ERROR] default - Admin login failed: User helloman123 is not an admin (role: User)
+[2025-11-12T14:10:44.115] [ERROR] default - Admin login failed: User helloman123 is not an admin (role: User)
+[2025-11-12T14:10:44.245] [ERROR] default - Admin login failed: User helloman123 is not an admin (role: User)
+[2025-11-12T14:10:44.404] [ERROR] default - Admin login failed: User helloman123 is not an admin (role: User)
+[2025-11-12T14:13:16.183] [ERROR] default - Admin login failed: User helloman123 is not an admin (role: User)
+[2025-11-12T14:14:41.616] [ERROR] default - Admin login failed: Invalid password for user helloman147
+[2025-11-12T14:15:14.832] [INFO] default - Admin login successful: helloman147
+[2025-11-12T14:15:49.477] [INFO] default - Admin login successful: helloman147
+[2025-11-12T14:16:11.263] [INFO] default - Access about page successful
+[2025-11-12T14:16:14.297] [INFO] default - get Rubik successful
+[2025-11-12T14:16:17.397] [INFO] default - get Rubik successful
+[2025-11-12T14:16:45.547] [INFO] default - Admin login successful: helloman147
+[2025-11-12T14:21:00.388] [INFO] default - Admin login successful: helloman147
+[2025-11-12T14:32:32.122] [INFO] default - Admin login successful: helloman147
+[2025-11-12T14:32:32.464] [ERROR] default - Your account has been login from another place.
+[2025-11-12T14:32:32.497] [ERROR] default - Your account has been login from another place.
+[2025-11-12T14:32:39.114] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-12T14:33:50.803] [INFO] default - Admin login successful: helloman147
+[2025-11-12T14:33:50.935] [ERROR] default - Your account has been login from another place.
+[2025-11-12T14:33:50.967] [ERROR] default - Your account has been login from another place.
+[2025-11-12T14:34:49.855] [INFO] default - Admin login successful: helloman147
+[2025-11-12T14:35:39.797] [ERROR] default - Admin login failed: Invalid password for user helloman147
+[2025-11-12T14:35:55.256] [INFO] default - Admin login successful: helloman147
+[2025-11-12T14:36:21.643] [INFO] default - Admin login successful: helloman147
+[2025-11-12T14:36:21.714] [ERROR] default - Your account has been login from another place.
+[2025-11-12T14:36:21.726] [ERROR] default - Your account has been login from another place.
+[2025-11-12T14:39:45.034] [ERROR] default - Admin login failed: Invalid password for user helloman147
+[2025-11-12T14:39:57.527] [INFO] default - Admin login successful: helloman147
+[2025-11-12T14:39:57.602] [ERROR] default - Your account has been login from another place.
+[2025-11-12T14:39:57.613] [ERROR] default - Your account has been login from another place.
+[2025-11-12T14:41:51.781] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-12T14:47:30.563] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-12T14:47:53.632] [INFO] default - Admin login successful: helloman147
+[2025-11-12T14:47:53.996] [ERROR] default - Your account has been login from another place.
+[2025-11-12T14:47:54.016] [ERROR] default - Your account has been login from another place.
+[2025-11-12T14:49:10.051] [ERROR] default - Your account has been login from another place.
+[2025-11-12T14:52:34.747] [INFO] default - Access about page successful
+[2025-11-12T14:53:03.082] [INFO] default - Admin login successful: helloman147
+[2025-11-12T14:53:03.177] [INFO] default - get Rubik successful
+[2025-11-12T14:53:03.218] [INFO] default - get Rubik successful
+[2025-11-12T17:11:58.223] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-12T17:38:48.000] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-12T17:41:21.667] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-12T17:49:12.881] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-12T18:47:00.069] [ERROR] default - MQTT INIT FAILED:Connection error: 

@@ -1,7 +1,7 @@
 import * as express from 'express'
 import {user,room_user,user_room_detail,rubik_info,image_detail,social_account,session,role,rubikProblem,rubikProblemDetail,temp_device,device} from '../models/user_model';
 import checkingDuplicateUserNameOrEmail from '../config/checking';
-import {token_checking,email_token_checking} from '../config/checkingToken';
+import {token_checking,email_token_checking,admin_checking,user_only_checking} from '../config/checkingToken';
 import {username,password,loginUrl,registerServerUrl} from './gmail_account';
 import { DateTime, Interval } from 'luxon';
 import { Kafka } from 'kafkajs';
@@ -513,7 +513,7 @@ catch(err)
 }
 });
 
-router.get('/device/:username',token_checking,async function(req,res,next)
+router.get('/device/:username',user_only_checking,async function(req,res,next)
 {
   try
   {
@@ -540,7 +540,7 @@ router.get('/device/:username',token_checking,async function(req,res,next)
 
 
 
-router.post('/add_images',token_checking,upload.array('images',10),async function(req,res,next)
+router.post('/add_images',user_only_checking,upload.array('images',10),async function(req,res,next)
 {
 try
 { 
@@ -595,7 +595,7 @@ catch(ex)
 }
 });
 
-router.post('/add_device',token_checking,async function(req,res,next)
+router.post('/add_device',user_only_checking,async function(req,res,next)
 {
 try
 {
@@ -625,7 +625,7 @@ catch(err)
 });
 
 
-router.post('/delete_device',token_checking,async function(req,res,next){
+router.post('/delete_device',user_only_checking,async function(req,res,next){
 try
 {
   var device_name=req.body.device_name;
@@ -830,6 +830,1043 @@ router.post('/login',function (req,res,next){
   }
 });
 
+// 管理员登录API - 只允许管理员用户登录
+router.post('/admin/login',async function(req,res,next){
+  try
+  {
+    console.log("Admin login attempt - Username: "+req.body.username);
+    var ip_addr=req.body.ip_addr;
+    
+    var city=req.body.city;
+    
+    if(!req.body.username || !req.body.password)
+    {
+      return res.status(400).send({status:false,message:"Username and password are required"});
+    }
+    
+    // 查找用户
+    var userr=await user.findOne({username:req.body.username});
+    
+    if(!userr)
+    {
+      logger.error(`Admin login failed: Username ${req.body.username} does not exist`);
+      return res.status(401).send({status:false,message:"Invalid username or password"});
+    }
+    
+    // 验证密码
+    var passwordIsValid=bcrypt.compareSync(req.body.password,userr.password);
+    if(!passwordIsValid)
+    {
+      logger.error(`Admin login failed: Invalid password for user ${req.body.username}`);
+      return res.status(401).send({status:false,message:"Invalid username or password"});
+    }
+    
+    // 检查用户角色 - 必须是管理员
+    var user_role=await role.findOne({_id:userr.role_id});
+    if(!user_role)
+    {
+      logger.error(`Admin login failed: Role not found for user ${req.body.username}`);
+      return res.status(403).send({status:false,message:"User role not found"});
+    }
+    
+    // 验证是否是管理员角色
+    if(user_role.role_type!=='Admin')
+    {
+      logger.error(`Admin login failed: User ${req.body.username} is not an admin (role: ${user_role.role_type})`);
+      return res.status(403).send({status:false,message:"Access denied. Admin privileges required."});
+    }
+    
+    // 生成JWT token
+    const jwt_payload=
+    {
+      user_id:userr._id,
+      username:userr.username
+    }
+    
+    var token=jwt.sign(jwt_payload,config.secret,{expiresIn:'1h'});
+    var created_time=DateTime.now().toLocaleString(DateTime.DATETIME_FULL_WITH_SECONDS);
+    
+    // 更新或创建session
+    const existingToken=await session.findOne({user_name:userr.username});
+    if(existingToken)
+    {
+      await session.updateOne({user_name:userr.username},{$set:{token:token,created_time:created_time,ip_address:ip_addr,city:city}});
+    }
+    else
+    {
+      await session.create({user_name:userr.username,token:token,created_time:created_time,ip_address:ip_addr,city:city});
+    }
+    
+    // 更新用户最后活动时间
+    // var last_active_action=userr.last_active;
+    // var now_str=DateTime.now().toLocaleString(DateTime.DATETIME_FULL_WITH_SECONDS);
+    // await user.updateOne({username:userr.username},{$set:{last_active:now_str,last_action:last_active_action}});
+    
+    logger.info(`Admin login successful: ${userr.username}`);
+    
+    console.log(`Admin login successful: ${userr.username}`);
+
+    return res.status(200).send({
+      status:true,
+      message:"Admin login successful",
+      token:token,
+      avatar:userr.avatar,
+      data:{
+        id:userr._id,
+        username:userr.username,
+        email:userr.email,
+        role:user_role.role_type
+      }
+    });
+  }
+  catch(err)
+  {
+    logger.error("Admin login error: "+err.message);
+    res.status(500).send({status:false,message:"Internal server error"});
+  }
+});
+
+// 管理员仪表板API - 获取管理员仪表板统计数据
+router.get('/admin/dashboard',admin_checking,async function(req,res,next){
+  try
+  {
+    // 获取用户统计
+    const totalUsers = await user.countDocuments();
+    
+    // 获取所有管理员角色ID
+    const adminRoles = await role.find({role_type: 'Admin'});
+    
+    const adminRoleIds = adminRoles.map(r => r._id);
+    
+    // 统计管理员用户数
+    const adminCount = await user.countDocuments({role_id: {$in: adminRoleIds}});
+    
+    const regularUserCount = totalUsers - adminCount;
+
+    // 获取活跃会话统计
+    const activeSessions = await session.countDocuments();
+    
+    // 获取设备统计
+    const totalDevices = await device.countDocuments();
+    
+    // 获取房间统计（如果存在）
+    let totalRooms = 0;
+    let activeRooms = 0;
+    try {
+      totalRooms = await room_user.countDocuments();
+      // 可以根据需要定义活跃房间的逻辑
+      activeRooms = await room_user.countDocuments();
+    } catch(err) {
+      // 如果room_user模型不存在或出错，忽略
+      logger.warn("Room statistics not available: "+err.message);
+    }
+
+    // 获取Rubik问题统计
+    let totalRubikProblems = 0;
+    try {
+      totalRubikProblems = await rubikProblem.countDocuments();
+    } catch(err) {
+      logger.warn("Rubik problem statistics not available: "+err.message);
+    }
+
+    // 获取最近24小时注册的用户数（created_date是字符串格式，使用简化处理）
+    const yesterday = DateTime.now().minus({ hours: 24 });
+    const yesterdayTimestamp = yesterday.toMillis();
+    const allUsers = await user.find({}, {created_date: 1});
+    const recentUsers = allUsers.filter(u => {
+      if (!u.created_date) return false;
+      try {
+        // 尝试解析日期字符串
+        let userDate = DateTime.fromISO(u.created_date);
+        if (!userDate.isValid) {
+          userDate = DateTime.fromSQL(u.created_date);
+        }
+        if (userDate.isValid) {
+          return userDate.toMillis() >= yesterdayTimestamp;
+        }
+        return false;
+      } catch {
+        return false;
+      }
+    }).length;
+
+    // 获取最近24小时活跃会话数（created_time是字符串格式，使用简化处理）
+    const allSessions = await session.find({}, {created_time: 1});
+    const recentSessions = allSessions.filter(s => {
+      if (!s.created_time) return false;
+      try {
+        // 尝试解析日期字符串
+        let sessionDate = DateTime.fromISO(s.created_time);
+        if (!sessionDate.isValid) {
+          sessionDate = DateTime.fromSQL(s.created_time);
+        }
+        if (sessionDate.isValid) {
+          return sessionDate.toMillis() >= yesterdayTimestamp;
+        }
+        return false;
+      } catch {
+        return false;
+      }
+    }).length;
+
+    // 获取当前登录的管理员信息
+    const currentAdmin = await user.findOne({username: req.username});
+    
+    const adminRole = await role.findOne({_id: currentAdmin.role_id});
+
+    logger.info(`Admin dashboard accessed by: ${req.username}`);
+
+    return res.status(200).json({
+      status: true,
+      message: "Dashboard data retrieved successfully",
+      data: {
+        userStatistics: {
+          totalUsers: totalUsers,
+          adminUsers: adminCount,
+          regularUsers: regularUserCount,
+          recentRegistrations: recentUsers
+        },
+        sessionStatistics: {
+          activeSessions: activeSessions,
+          recentSessions: recentSessions
+        },
+        deviceStatistics: {
+          totalDevices: totalDevices
+        },
+        roomStatistics: {
+          totalRooms: totalRooms,
+          activeRooms: activeRooms
+        },
+        rubikStatistics: {
+          totalProblems: totalRubikProblems
+        },
+        currentAdmin: {
+          id: currentAdmin._id,
+          username: currentAdmin.username,
+          email: currentAdmin.email,
+          role: adminRole ? adminRole.role_type : 'Unknown',
+          lastActive: currentAdmin.last_active
+        },
+        timestamp: DateTime.now().toISO()
+      }
+    });
+  }
+  catch(err)
+  {
+    logger.error("Admin dashboard error: "+err.message);
+    res.status(500).json({
+      status: false,
+      message: "Internal server error",
+      error: err.message
+    });
+  }
+});
+
+// 管理员用户列表API - 获取用户列表（仅客户端用户）
+
+router.get('/admin/users', admin_checking, async function(req, res, next) {
+  try {
+    // 获取查询参数
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 10;
+    const search = req.query.search as string || '';
+    const roleFilter = req.query.role as string || '';    
+    
+    // 计算跳过的记录数
+    const skip = (page - 1) * limit;
+  
+    // 获取所有管理员角色ID，用于排除管理员用户
+    const adminRoles = await role.find({ role_type: 'Admin' });
+    
+    const adminRoleIds = adminRoles.map(r => r._id);
+    
+    // 构建查询条件数组
+    const conditions: any[] = [];
+
+    // 构建role_id条件
+    let roleIdCondition: any = {};
+    
+    // 排除管理员用户（只返回客户端用户）
+    if (adminRoleIds.length > 0) {
+      roleIdCondition.$nin = adminRoleIds;
+    }
+    
+    // 角色过滤（仅对客户端角色有效）
+    if (roleFilter) {
+      // 先查找匹配的角色ID（排除Admin角色）
+      const roles = await role.find({ 
+        $and: [
+          { role_type: { $regex: roleFilter, $options: 'i' } },
+          { role_type: { $ne: 'Admin' } }
+        ]
+      });
+      
+      const roleIds = roles.map(r => r._id);
+      
+      if (roleIds.length > 0) {
+        roleIdCondition.$in = roleIds;
+      } else {
+        // 如果没有匹配的角色，返回空结果
+        roleIdCondition.$in = [];
+      }
+    }
+    
+    // 如果有role_id条件，添加到查询中
+    if (Object.keys(roleIdCondition).length > 0) {
+      conditions.push({ role_id: roleIdCondition });
+    }
+    
+    // 搜索条件：按用户名或邮箱搜索
+    if (search) {
+      conditions.push({
+        $or: [
+          { username: { $regex: search, $options: 'i' } },
+          { email: { $regex: search, $options: 'i' } }
+        ]
+      });
+    }
+    
+    // 构建最终查询
+    const query = conditions.length > 0 ? { $and: conditions } : {};
+    
+    // 获取总数
+    const totalUsers = await user.countDocuments(query);
+    
+    // 获取用户列表（排除密码字段）
+    const users = await user.find(query, { password: 0 })
+      .sort({ created_date: -1 }) // 按创建日期降序排列
+      .skip(skip)
+      .limit(limit)
+      .lean();
+    
+    // 获取所有角色信息以便映射
+    const allRoles = await role.find({});
+    const roleMap = new Map();
+    allRoles.forEach(r => {
+      roleMap.set(r._id, r.role_type);
+    });
+    
+    // 为每个用户添加角色信息
+    const usersWithRole = users.map(u => ({
+      ...u,
+      role: roleMap.get(u.role_id) || 'Unknown'
+    }));
+    
+    // 计算总页数
+    const totalPages = Math.ceil(totalUsers / limit);
+    
+    logger.info(`Admin users list accessed by: ${req.username}, page: ${page}, limit: ${limit}`);
+    
+    return res.status(200).json({
+      status: true,
+      message: "Users retrieved successfully",
+      data: {
+        users: usersWithRole,
+        pagination: {
+          currentPage: page,
+          totalPages: totalPages,
+          totalUsers: totalUsers,
+          limit: limit,
+          hasNextPage: page < totalPages,
+          hasPrevPage: page > 1
+        }
+      }
+    });
+  }
+  catch(err) {
+    logger.error("Admin users list error: " + err.message);
+    res.status(500).json({
+      status: false,
+      message: "Internal server error",
+      error: err.message
+    });
+  }
+});
+
+// 管理员 - 获取单个客户端用户详情（用于编辑）
+const DEFAULT_CLIENT_AVATAR = 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png';
+const escapeRegExp = (value: string): string => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+router.post('/admin/users', admin_checking, async function(req, res, next) {
+  try {
+    const {
+      username,
+      password,
+      email,
+      phone,
+      gender,
+      avatar,
+      role_id
+    } = req.body || {};
+
+    const trimmedUsername = typeof username === 'string' ? username.trim() : '';
+    const rawPassword = typeof password === 'string' ? password : '';
+    const trimmedEmail = typeof email === 'string' ? email.trim().toLowerCase() : '';
+    const trimmedGender = typeof gender === 'string' ? gender.trim() : '';
+    const trimmedAvatar = typeof avatar === 'string' && avatar.trim() !== '' ? avatar.trim() : DEFAULT_CLIENT_AVATAR;
+    const normalizedPhone = typeof phone === 'string' ? phone.replace(/\s+/g, '') : '';
+
+    if (!trimmedUsername || !rawPassword || !trimmedEmail || !normalizedPhone || !trimmedGender) {
+      return res.status(400).json({
+        status: false,
+        message: 'username, password, email, phone and gender are required'
+      });
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(trimmedEmail)) {
+      return res.status(400).json({
+        status: false,
+        message: 'Invalid email format'
+      });
+    }
+
+    if (normalizedPhone.length < 8) {
+      return res.status(400).json({
+        status: false,
+        message: 'Invalid phone number'
+      });
+    }
+
+    if (rawPassword.length < 6) {
+      return res.status(400).json({
+        status: false,
+        message: 'Password must be at least 6 characters'
+      });
+    }
+
+    if (typeof role_id === 'undefined') {
+      return res.status(400).json({
+        status: false,
+        message: 'role_id is required'
+      });
+    }
+
+    const parsedRoleId = Number(role_id);
+    if (!Number.isInteger(parsedRoleId)) {
+      return res.status(400).json({
+        status: false,
+        message: 'role_id must be an integer'
+      });
+    }
+
+    const roleDetail = await role.findOne({ _id: parsedRoleId }).lean();
+
+    if (!roleDetail) {
+      return res.status(400).json({
+        status: false,
+        message: 'Role not found'
+      });
+    }
+
+    if (roleDetail.role_type === 'Admin') {
+      return res.status(403).json({
+        status: false,
+        message: 'Creating admin users is not allowed'
+      });
+    }
+
+    const existingUser = await user.findOne({
+      $or: [
+        { username: trimmedUsername },
+        { email: trimmedEmail },
+        { phone: normalizedPhone }
+      ]
+    }).lean();
+
+    if (existingUser) {
+      let conflictField = 'username';
+      if (existingUser.email === trimmedEmail) {
+        conflictField = 'email';
+      } else if (existingUser.phone === normalizedPhone) {
+        conflictField = 'phone';
+      }
+
+      return res.status(409).json({
+        status: false,
+        message: `This ${conflictField} already exists`
+      });
+    }
+
+    const hashedPassword = bcrypt.hashSync(rawPassword, 8);
+    const now = DateTime.now().toISO();
+
+    const newUser = new user({
+      username: trimmedUsername,
+      password: hashedPassword,
+      gender: trimmedGender,
+      email: trimmedEmail,
+      phone: normalizedPhone,
+      avatar: trimmedAvatar,
+      created_date: now,
+      last_active: now,
+      last_action: 'Created by admin',
+      is_checking: false,
+      role_id: parsedRoleId
+    });
+
+    await newUser.save();
+
+    const createdUser = await user.findOne({ _id: newUser._id }, { password: 0 }).lean();
+
+    logger.info(`Admin created user: ${trimmedUsername} (${newUser._id}) by ${req.username}`);
+
+    return res.status(201).json({
+      status: true,
+      message: 'User created successfully',
+      data: {
+        user: createdUser
+      }
+    });
+  } catch (err) {
+    logger.error('Admin create user error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
+router.get('/admin/users/:id/edit', admin_checking, async function(req, res, next) {
+  try {
+    const userId = Number(req.params.id);
+
+    if (!Number.isInteger(userId)) {
+      return res.status(400).json({
+        status: false,
+        message: 'Invalid user ID'
+      });
+    }
+
+    // 查找目标用户（排除密码字段）
+    const userDetail = await user.findOne({ _id: userId }, { password: 0 }).lean();
+
+    if (!userDetail) {
+      return res.status(404).json({
+        status: false,
+        message: 'User not found'
+      });
+    }
+
+    // 校验：不允许对管理员用户执行编辑接口
+    const adminRoles = await role.find({ role_type: 'Admin' });
+    const adminRoleIds = adminRoles.map(r => r._id);
+
+    if (adminRoleIds.includes(userDetail.role_id)) {
+      return res.status(403).json({
+        status: false,
+        message: 'Editing admin users is not allowed'
+      });
+    }
+
+    const userRole = await role.findById(userDetail.role_id).lean();
+
+    logger.info(`Admin fetched user detail for edit: ${userDetail.username} (${userId}) by ${req.username}`);
+
+    return res.status(200).json({
+      status: true,
+      message: 'User detail retrieved successfully',
+      data: {
+        user: {
+          ...userDetail,
+          role: userRole ? userRole.role_type : 'Unknown'
+        }
+      }
+    });
+  } catch (err) {
+    logger.error('Admin user detail error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
+// 管理员 - 更新客户端用户信息
+router.post('/admin/users/:id', admin_checking, async function(req, res, next) {
+  try {
+    const userId = Number(req.params.id);
+
+    if (!Number.isInteger(userId)) {
+      return res.status(400).json({
+        status: false,
+        message: 'Invalid user ID'
+      });
+    }
+
+    const allowedFields = ['username', 'email', 'phone', 'gender', 'avatar', 'is_checking', 'role_id'];
+    const updates: any = {};
+
+    allowedFields.forEach((field) => {
+      if (typeof req.body[field] !== 'undefined') {
+        if (typeof req.body[field] === 'string') {
+          updates[field] = req.body[field].trim();
+        } else {
+          updates[field] = req.body[field];
+        }
+      }
+    });
+
+    if (Object.keys(updates).length === 0) {
+      return res.status(400).json({
+        status: false,
+        message: 'No valid fields provided for update'
+      });
+    }
+
+    const targetUser = await user.findOne({ _id: userId }).lean();
+
+    if (!targetUser) {
+      return res.status(404).json({
+        status: false,
+        message: 'User not found'
+      });
+    }
+
+    const adminRoles = await role.find({ role_type: 'Admin' });
+    const adminRoleIds = adminRoles.map(r => r._id);
+
+    if (adminRoleIds.includes(targetUser.role_id)) {
+      return res.status(403).json({
+        status: false,
+        message: 'Updating admin users is not allowed'
+      });
+    }
+
+    if (typeof updates.is_checking !== 'undefined') {
+      if (typeof updates.is_checking !== 'boolean') {
+        return res.status(400).json({
+          status: false,
+          message: 'is_checking must be a boolean value'
+        });
+      }
+    }
+
+    if (updates.email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(updates.email)) {
+        return res.status(400).json({
+          status: false,
+          message: 'Invalid email format'
+        });
+      }
+    }
+
+    if (updates.phone) {
+      updates.phone = updates.phone.replace(/\s+/g, '');
+      if (updates.phone.length < 8) {
+        return res.status(400).json({
+          status: false,
+          message: 'Invalid phone number'
+        });
+      }
+    }
+
+    if (typeof updates.role_id !== 'undefined') {
+      const parsedRoleId = Number(updates.role_id);
+      if (!Number.isInteger(parsedRoleId)) {
+        return res.status(400).json({
+          status: false,
+          message: 'role_id must be an integer'
+        });
+      }
+
+      const roleDetail = await role.findOne({ _id: parsedRoleId }).lean();
+
+      if (!roleDetail) {
+        return res.status(400).json({
+          status: false,
+          message: 'Role not found'
+        });
+      }
+
+      if (roleDetail.role_type === 'Admin') {
+        return res.status(403).json({
+          status: false,
+          message: 'Assigning admin role is not allowed'
+        });
+      }
+
+      updates.role_id = parsedRoleId;
+    }
+
+    await user.updateOne({ _id: userId }, { $set: updates });
+
+    const updatedUser = await user.findOne({ _id: userId }, { password: 0 }).lean();
+
+    logger.info(`Admin updated user: ${updatedUser?.username} (${userId}) by ${req.username}`);
+
+    return res.status(200).json({
+      status: true,
+      message: 'User updated successfully',
+      data: {
+        user: updatedUser
+      }
+    });
+  } catch (err) {
+    logger.error('Admin update user error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
+router.get('/admin/users/:id/delete', admin_checking, async function(req, res, next) {
+  try {
+    const userId = Number(req.params.id);
+
+    if (!Number.isInteger(userId)) {
+      return res.status(400).json({
+        status: false,
+        message: 'Invalid user ID'
+      });
+    }
+
+    const userDetail = await user.findOne({ _id: userId }).lean();
+
+    if (!userDetail) {
+      return res.status(404).json({
+        status: false,
+        message: 'User not found'
+      });
+    }
+
+    const adminRoles = await role.find({ role_type: 'Admin' });
+    const adminRoleIds = adminRoles.map(r => r._id);
+
+    if (adminRoleIds.includes(userDetail.role_id)) {
+      return res.status(403).json({
+        status: false,
+        message: 'Deleting admin users is not allowed'
+      });
+    }
+
+    await user.deleteOne({ _id: userId });
+
+    logger.info(`Admin deleted user: ${userDetail.username} (${userId}) by ${req.username}`);
+
+    return res.status(200).json({
+      status: true,
+      message: 'User deleted successfully'
+    });
+  } catch (err) {
+    logger.error('Admin delete user error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
+// 管理员 - 产品列表
+router.get('/admin/products', admin_checking, async function(req, res, next) {
+  try {
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 10;
+    const search = (req.query.search as string) || '';
+    const skip = (page - 1) * limit;
+
+    const query: any = {};
+    if (search) {
+      query.$or = [
+        { name: { $regex: search, $options: 'i' } },
+        { description: { $regex: search, $options: 'i' } }
+      ];
+    }
+
+    const totalProducts = await rubik_info.countDocuments(query);
+    const products = await rubik_info.find(query)
+      .sort({ _id: -1 })
+      .skip(skip)
+      .limit(limit)
+      .lean();
+
+    logger.info(`Admin products list accessed by: ${req.username}, page: ${page}, limit: ${limit}`);
+
+    return res.status(200).json({
+      status: true,
+      message: 'Products retrieved successfully',
+      data: {
+        products,
+        pagination: {
+          currentPage: page,
+          totalPages: Math.ceil(totalProducts / limit),
+          totalProducts,
+          limit,
+          hasNextPage: page * limit < totalProducts,
+          hasPrevPage: page > 1
+        }
+      }
+    });
+  } catch (err) {
+    logger.error('Admin products list error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
+// 管理员 - 创建产品
+router.post('/admin/products', admin_checking, async function(req, res, next) {
+  try {
+    const {
+      name,
+      description,
+      avatar,
+      feature,
+      category_id
+    } = req.body || {};
+
+    const trimmedName = typeof name === 'string' ? name.trim() : '';
+    const trimmedDescription = typeof description === 'string' ? description.trim() : '';
+    const trimmedAvatar = typeof avatar === 'string' ? avatar.trim() : '';
+    const trimmedFeature = typeof feature === 'string' ? feature.trim() : '';
+    const hasCategory = typeof category_id !== 'undefined' && category_id !== null && category_id !== '';
+
+    if (!trimmedName || !trimmedDescription || !trimmedAvatar || !trimmedFeature) {
+      return res.status(400).json({
+        status: false,
+        message: 'name, description, avatar and feature are required'
+      });
+    }
+
+    const nameRegex = new RegExp(`^${escapeRegExp(trimmedName)}$`, 'i');
+    const existingProduct = await rubik_info.findOne({ name: nameRegex }).lean();
+
+    if (existingProduct) {
+      return res.status(409).json({
+        status: false,
+        message: 'Product name already exists'
+      });
+    }
+
+    let parsedCategoryId: number | undefined = undefined;
+    if (hasCategory) {
+      parsedCategoryId = Number(category_id);
+      if (!Number.isInteger(parsedCategoryId)) {
+        return res.status(400).json({
+          status: false,
+          message: 'category_id must be an integer'
+        });
+      }
+    }
+
+    const productPayload: any = {
+      name: trimmedName,
+      description: trimmedDescription,
+      avatar: trimmedAvatar,
+      feature: trimmedFeature
+    };
+
+    if (typeof parsedCategoryId !== 'undefined') {
+      productPayload.category_id = parsedCategoryId;
+    }
+
+    const product = new rubik_info(productPayload);
+    await product.save();
+
+    logger.info(`Admin created product: ${trimmedName} (${product._id}) by ${req.username}`);
+
+    return res.status(201).json({
+      status: true,
+      message: 'Product created successfully',
+      data: {
+        product
+      }
+    });
+  } catch (err) {
+    logger.error('Admin create product error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
+// 管理员 - 获取单个产品详情
+router.get('/admin/products/:id/edit', admin_checking, async function(req, res, next) {
+  try {
+    const productId = Number(req.params.id);
+
+    if (!Number.isInteger(productId)) {
+      return res.status(400).json({
+        status: false,
+        message: 'Invalid product ID'
+      });
+    }
+
+    const productDetail = await rubik_info.findOne({ _id: productId }).lean();
+
+    if (!productDetail) {
+      return res.status(404).json({
+        status: false,
+        message: 'Product not found'
+      });
+    }
+
+    logger.info(`Admin fetched product detail: ${productDetail.name} (${productId}) by ${req.username}`);
+
+    return res.status(200).json({
+      status: true,
+      message: 'Product detail retrieved successfully',
+      data: {
+        product: productDetail
+      }
+    });
+  } catch (err) {
+    logger.error('Admin product detail error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
+// 管理员 - 更新产品信息（使用POST）
+router.post('/admin/products/:id', admin_checking, async function(req, res, next) {
+  try {
+    const productId = Number(req.params.id);
+
+    if (!Number.isInteger(productId)) {
+      return res.status(400).json({
+        status: false,
+        message: 'Invalid product ID'
+      });
+    }
+
+    const allowedFields = ['name', 'description', 'avatar', 'feature', 'category_id'];
+    const updates: Record<string, any> = {};
+
+    allowedFields.forEach((field) => {
+      if (typeof req.body[field] !== 'undefined') {
+        if (typeof req.body[field] === 'string') {
+          updates[field] = req.body[field].trim();
+        } else {
+          updates[field] = req.body[field];
+        }
+      }
+    });
+
+    if (Object.keys(updates).length === 0) {
+      return res.status(400).json({
+        status: false,
+        message: 'No valid fields provided for update'
+      });
+    }
+
+    const productDetail = await rubik_info.findOne({ _id: productId }).lean();
+
+    if (!productDetail) {
+      return res.status(404).json({
+        status: false,
+        message: 'Product not found'
+      });
+    }
+
+    if (typeof updates.name !== 'undefined') {
+      if (!updates.name) {
+        return res.status(400).json({
+          status: false,
+          message: 'name cannot be empty'
+        });
+      }
+
+      const nameRegex = new RegExp(`^${escapeRegExp(updates.name)}$`, 'i');
+      const duplicate = await rubik_info.findOne({
+        _id: { $ne: productId },
+        name: nameRegex
+      }).lean();
+
+      if (duplicate) {
+        return res.status(409).json({
+          status: false,
+          message: 'Product name already exists'
+        });
+      }
+    }
+
+    if (typeof updates.category_id !== 'undefined') {
+      const parsedCategoryId = Number(updates.category_id);
+      if (!Number.isInteger(parsedCategoryId)) {
+        return res.status(400).json({
+          status: false,
+          message: 'category_id must be an integer'
+        });
+      }
+      updates.category_id = parsedCategoryId;
+    }
+
+    await rubik_info.updateOne({ _id: productId }, { $set: updates });
+
+    const updatedProduct = await rubik_info.findOne({ _id: productId }).lean();
+
+    logger.info(`Admin updated product: ${updatedProduct?.name} (${productId}) by ${req.username}`);
+
+    return res.status(200).json({
+      status: true,
+      message: 'Product updated successfully',
+      data: {
+        product: updatedProduct
+      }
+    });
+  } catch (err) {
+    logger.error('Admin update product error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
+// 管理员 - 删除产品（使用GET）
+router.get('/admin/products/:id/delete', admin_checking, async function(req, res, next) {
+  try {
+    const productId = Number(req.params.id);
+
+    if (!Number.isInteger(productId)) {
+      return res.status(400).json({
+        status: false,
+        message: 'Invalid product ID'
+      });
+    }
+
+    const productDetail = await rubik_info.findOne({ _id: productId }).lean();
+
+    if (!productDetail) {
+      return res.status(404).json({
+        status: false,
+        message: 'Product not found'
+      });
+    }
+
+    await rubik_info.deleteOne({ _id: productId });
+
+    logger.info(`Admin deleted product: ${productDetail.name} (${productId}) by ${req.username}`);
+
+    return res.status(200).json({
+      status: true,
+      message: 'Product deleted successfully'
+    });
+  } catch (err) {
+    logger.error('Admin delete product error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
 
 router.post('/forgot_password',async function(req,res,next){
    try
@@ -850,7 +1887,7 @@ router.post('/forgot_password',async function(req,res,next){
             to:phone
             }
           ],
-         from:'InfoSMS',
+         from:'InfoSMS', 
          text:`Your verify OTP is ${otp}`
         }
       ]
@@ -896,6 +1933,7 @@ router.post('/reset-password',async function(req,res,next){
 try
 {
   var phone = req.body.phone;
+
   if(phone.indexOf('0')==0)
     {
       phone=phone.replace('0','+84');
@@ -909,7 +1947,9 @@ try
       res.status(400).send({status:false,message:'Phone Number is invalid'});
       return;
     }
+
   var password = req.body.password;
+  
   if(!checkPassword(password))
     {
       res.status(400).send({status:false,message:'Your password is not strong enough.'})
@@ -969,22 +2009,22 @@ catch(error)
 }
 });
 
-router.get('/join',token_checking,function(req,res,next)
+router.get('/join',user_only_checking,function(req,res,next)
 {
     return res.status(200).send({user:''});
 });
 
-router.get('/hall',token_checking,function(req,res,next)
+router.get('/hall',user_only_checking,function(req,res,next)
 {
   return res.status(200).send({user:''});
 });
 
-router.get('/level',token_checking,function(req,res,next)
+router.get('/level',user_only_checking,function(req,res,next)
 {
  return res.status(200).send();
 });
 
-router.get('/user_profile/:username',token_checking,function(req,res,next)
+router.get('/user_profile/:username',user_only_checking,function(req,res,next)
 {
      try
      {
@@ -1015,7 +2055,7 @@ router.get('/user_profile/:username',token_checking,function(req,res,next)
 });
 
 
- router.get('/profile/:username',token_checking,function(req,res,next){
+ router.get('/profile/:username',user_only_checking,function(req,res,next){
      try
      {
       var username=req.params.username;
@@ -1027,7 +2067,7 @@ router.get('/user_profile/:username',token_checking,function(req,res,next)
      }
  });
 
- router.get('/device/:username',token_checking,function(req,res,next)
+ router.get('/device/:username',user_only_checking,function(req,res,next)
  {
   try
   {
@@ -1107,7 +2147,7 @@ catch(err)
 }
 }
 
-router.get('/statistics/:username',token_checking,async function(req,res,next)
+router.get('/statistics/:username',user_only_checking,async function(req,res,next)
 {
   try
   {
@@ -1130,11 +2170,11 @@ router.get('/statistics/:username',token_checking,async function(req,res,next)
   }
 });
 
-router.post('/auth',token_checking,function(req,res,next){
+router.post('/auth',user_only_checking,function(req,res,next){
    res.status(200).send({message:'OK'});
 });
 
-router.put('/user_detail/:username',token_checking,async function(req,res,next)
+router.put('/user_detail/:username',user_only_checking,async function(req,res,next)
 {
  try{
     var data=req.body;
@@ -1163,7 +2203,7 @@ router.put('/user_detail/:username',token_checking,async function(req,res,next)
  }
 });
 
-router.post('/user_detail/:username',token_checking,function(req,res,next)
+router.post('/user_detail/:username',user_only_checking,function(req,res,next)
 {
   try
   { 
@@ -1181,7 +2221,7 @@ router.post('/user_detail/:username',token_checking,function(req,res,next)
     throw err;
   }
 });
-router.get('/user_detail/:username',token_checking,function(req,res,next)
+router.get('/user_detail/:username',user_only_checking,function(req,res,next)
 {
  try
  {  
@@ -1212,7 +2252,7 @@ router.get('/user_detail/:username',token_checking,function(req,res,next)
 });
 
 
-router.get('/about',token_checking,function(req,res,next)
+router.get('/about',user_only_checking,function(req,res,next)
 {
   try
   { logger.info('Access about page successful');
@@ -1252,7 +2292,7 @@ var downloadImageFromUrl=async(url:string,outputDir:string)=>
   return imageUrl;
 }
 
-router.get('/get-rubik',token_checking,async function(req,res,next)
+router.get('/get-rubik',user_only_checking,async function(req,res,next)
 {
  try
  {    logger.info('get Rubik successful');
@@ -1272,7 +2312,7 @@ router.get('/get-rubik',token_checking,async function(req,res,next)
  }
 });
 
-router.get('/product-details/:id',token_checking,async function(req,res,next){
+router.get('/product-details/:id',user_only_checking,async function(req,res,next){
  try
  { 
   var rubik_id=req.params.id;
@@ -1311,7 +2351,7 @@ console.log(regex);
 
 
 
-router.get('/rubik-solve/:name',token_checking,async function(req,res,next)
+router.get('/rubik-solve/:name',user_only_checking,async function(req,res,next)
 {
   try
   {
@@ -1418,7 +2458,7 @@ var check_status_device=async(username:string)=>
     }
   }
   
-router.get('/mqtt_check_device_status/:username',token_checking,async function(req,res,next)
+router.get('/mqtt_check_device_status/:username',user_only_checking,async function(req,res,next)
 {
  try
  {
@@ -1433,7 +2473,7 @@ router.get('/mqtt_check_device_status/:username',token_checking,async function(r
  }
 });
 
-router.post('/reset_checking_status',token_checking,async function(req,res,next)
+router.post('/reset_checking_status',user_only_checking,async function(req,res,next)
 {
   try
   {
@@ -1450,7 +2490,7 @@ router.post('/reset_checking_status',token_checking,async function(req,res,next)
 });
 
 
-router.get('/mqtt_consumer_run',token_checking,async function(req,res,next){
+router.get('/mqtt_consumer_run',user_only_checking,async function(req,res,next){
  try
  {
   await consumer.run({
@@ -1509,7 +2549,7 @@ catch(ex)
 }
 
 
-router.get('/products',token_checking,async function(req,res,next)
+router.get('/products',user_only_checking,async function(req,res,next)
 {
  try
  {
@@ -1631,7 +2671,7 @@ router.get('/mqtt_transmit', function(req,res,next){
  }
 });
 
-router.post('/solve_rubik/:name',token_checking,async function(req,res,next)
+router.post('/solve_rubik/:name',user_only_checking,async function(req,res,next)
 {
 try{
   var rubik_name=req.params.name;

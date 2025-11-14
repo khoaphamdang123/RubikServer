@@ -101,7 +101,6 @@ categorySchema.plugin(autoIncrement.plugin,'category');
 
 const category=mongoose.model('category',categorySchema,'Category');
 
-
 const socialNetworkAccountSchema=new Schema({
     _id:{type:Number,required:false},
     username:{type:String,required:true},
@@ -138,7 +137,6 @@ user_id:{type:Number,required:true},
 level_id:{type:Number,require:true},
 time_complete:{type:String,require:true}
 });
-
 
 const roleSchema=new Schema({
     _id:{type:Number,required:false},
@@ -182,6 +180,7 @@ const social_account=mongoose.model('socialNetworkAccount',socialNetworkAccountS
 const image_detail=mongoose.model('detailImage',detailImageSchema,'DetailImage');
 
 const role=mongoose.model('role',roleSchema,'Role');
+
 
 export {user,question_level,room_user,user_room_detail,single_board_detail,rubik_info,image_detail,session,temp_device,device,rubikProblem,social_account,rubikProblemDetail,category,role}; 
 

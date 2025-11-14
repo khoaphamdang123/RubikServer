@@ -1,0 +1,188 @@
+[2025-11-14T10:59:54.577] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T11:12:11.044] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T11:13:59.361] [INFO] default - Admin login successful: helloman147
+[2025-11-14T11:13:59.941] [ERROR] default - Admin account attempted to access client page: helloman147
+[2025-11-14T11:13:59.969] [ERROR] default - Your account has been login from another place.
+[2025-11-14T11:16:43.225] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T11:18:03.040] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T11:18:23.700] [INFO] default - Admin login successful: helloman147
+[2025-11-14T11:18:24.008] [ERROR] default - Admin account attempted to access client page: helloman147
+[2025-11-14T11:18:24.023] [ERROR] default - Your account has been login from another place.
+[2025-11-14T11:21:51.986] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T11:22:09.868] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T11:23:24.233] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T11:26:14.643] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T11:32:38.365] [INFO] default - Admin login successful: helloman147
+[2025-11-14T11:32:38.461] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-14T11:33:31.789] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-14T11:35:15.722] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T11:37:17.924] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T11:38:06.194] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T11:39:50.063] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:41:16.554] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:41:26.560] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:41:27.497] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:41:47.344] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:43:01.162] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:43:26.166] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:43:27.914] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:43:32.007] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:43:43.036] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:43:47.813] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:43:47.889] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:43:52.136] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:43:54.145] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:43:55.236] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:45:39.478] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:45:41.486] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:45:56.097] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:46:02.958] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:46:05.809] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:46:12.063] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:46:19.474] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:46:31.341] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:46:38.144] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:46:54.126] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:49:37.999] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T11:53:07.115] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:53:08.712] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-14T11:53:09.344] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:53:09.644] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-14T11:53:09.844] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:53:10.060] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-14T11:53:10.959] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:53:17.204] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:53:20.418] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:55:31.338] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:56:25.500] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-14T11:56:26.799] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:57:07.622] [INFO] default - Admin login successful: helloman147
+[2025-11-14T11:57:07.677] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-14T11:57:09.245] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T11:59:13.493] [ERROR] default - Session expired or account logged in from another place.
+[2025-11-14T11:59:14.728] [ERROR] default - Session expired or account logged in from another place.
+[2025-11-14T12:00:32.212] [INFO] default - Admin login successful: helloman147
+[2025-11-14T12:00:32.253] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-14T12:00:33.528] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:12:06.415] [ERROR] default - JWT verification failed: jwt expired
+[2025-11-14T14:12:08.521] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T14:12:22.542] [ERROR] default - Admin login failed: User helloman123 is not an admin (role: User)
+[2025-11-14T14:12:50.857] [INFO] default - Admin login successful: helloman147
+[2025-11-14T14:12:50.941] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-14T14:12:52.362] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:12:55.197] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:18:51.070] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:19:09.350] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:19:25.733] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:23:56.766] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:24:42.859] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T14:24:51.427] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:24:55.246] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:25:21.590] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:25:22.139] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:25:22.314] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:25:22.446] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:25:22.626] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:25:22.781] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:25:31.488] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:25:35.456] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:25:36.456] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:25:47.128] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:26:01.381] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:26:06.495] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:26:48.543] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:29:51.180] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T14:31:07.962] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T14:31:55.496] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T14:33:04.064] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T14:33:31.417] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T14:41:42.511] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T14:42:15.141] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:43:24.505] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:43:36.424] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:46:21.640] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:49:47.690] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:50:25.732] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:51:21.527] [ERROR] default - Your account has been login from another place.
+[2025-11-14T14:51:42.116] [INFO] default - Admin login successful: helloman147
+[2025-11-14T14:51:42.220] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-14T14:51:43.663] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:54:47.216] [ERROR] default - Session expired or account logged in from another place.
+[2025-11-14T14:54:52.955] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T14:55:02.233] [INFO] default - Admin login successful: helloman147
+[2025-11-14T14:55:02.320] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-14T14:55:03.528] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T14:57:11.219] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T14:58:26.762] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T15:02:08.617] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T15:02:36.743] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T15:12:25.043] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T15:12:34.214] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T15:12:43.229] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T15:15:29.139] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T15:16:22.673] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T15:17:09.701] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T15:19:37.124] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T15:19:49.247] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T15:19:57.004] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T15:20:20.015] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T15:21:16.590] [ERROR] default - Session expired or account logged in from another place.
+[2025-11-14T15:21:49.775] [INFO] default - Admin fetched user detail for edit: helloman123 (1) by helloman147
+[2025-11-14T15:22:24.581] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T15:22:26.720] [INFO] default - Admin fetched user detail for edit: helloman123 (1) by helloman147
+[2025-11-14T15:26:56.568] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T15:27:19.092] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T15:28:18.378] [INFO] default - Admin fetched user detail for edit: helloman123 (1) by helloman147
+[2025-11-14T15:28:49.951] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T15:29:55.397] [INFO] default - Admin fetched user detail for edit: helloman123 (1) by helloman147
+[2025-11-14T15:29:57.094] [INFO] default - Admin fetched user detail for edit: helloman123 (1) by helloman147
+[2025-11-14T15:30:11.059] [INFO] default - Admin fetched user detail for edit: helloman123 (1) by helloman147
+[2025-11-14T15:30:25.071] [INFO] default - Admin fetched user detail for edit: helloman123 (1) by helloman147
+[2025-11-14T15:31:22.097] [INFO] default - Admin fetched user detail for edit: helloman123 (1) by helloman147
+[2025-11-14T15:31:28.635] [INFO] default - Admin fetched user detail for edit: helloman123 (1) by helloman147
+[2025-11-14T15:31:43.894] [INFO] default - Admin fetched user detail for edit: helloman123 (1) by helloman147
+[2025-11-14T15:31:56.106] [INFO] default - Admin fetched user detail for edit: helloman123 (1) by helloman147
+[2025-11-14T15:32:00.099] [INFO] default - Admin fetched user detail for edit: helloman123 (1) by helloman147
+[2025-11-14T15:32:04.064] [INFO] default - Admin fetched user detail for edit: helloman123 (1) by helloman147
+[2025-11-14T15:32:12.060] [INFO] default - Admin fetched user detail for edit: helloman123 (1) by helloman147
+[2025-11-14T15:33:24.766] [INFO] default - Admin fetched user detail for edit: helloman123 (1) by helloman147
+[2025-11-14T15:35:43.006] [INFO] default - Admin fetched user detail for edit: helloman123 (1) by helloman147
+[2025-11-14T15:35:43.835] [INFO] default - Admin fetched user detail for edit: helloman123 (1) by helloman147
+[2025-11-14T15:35:44.044] [INFO] default - Admin fetched user detail for edit: helloman123 (1) by helloman147
+[2025-11-14T15:35:44.205] [INFO] default - Admin fetched user detail for edit: helloman123 (1) by helloman147
+[2025-11-14T15:35:44.372] [INFO] default - Admin fetched user detail for edit: helloman123 (1) by helloman147
+[2025-11-14T15:35:44.517] [INFO] default - Admin fetched user detail for edit: helloman123 (1) by helloman147
+[2025-11-14T15:35:44.645] [INFO] default - Admin fetched user detail for edit: helloman123 (1) by helloman147
+[2025-11-14T15:36:10.598] [ERROR] default - Admin account attempted to access client page: helloman147
+[2025-11-14T15:36:11.570] [ERROR] default - Session expired or account logged in from another place.
+[2025-11-14T15:37:28.299] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T15:39:58.693] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T15:44:04.483] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T15:44:36.113] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T15:49:07.437] [INFO] default - Admin login successful: helloman147
+[2025-11-14T15:49:07.521] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-14T15:49:08.780] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T15:49:12.291] [INFO] default - Admin fetched user detail for edit: helloman123 (1) by helloman147
+[2025-11-14T15:49:17.906] [INFO] default - Admin updated user: helloman12345 (1) by helloman147
+[2025-11-14T15:49:21.628] [INFO] default - Admin fetched user detail for edit: helloman12345 (1) by helloman147
+[2025-11-14T15:49:23.044] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T15:49:25.888] [INFO] default - Admin fetched user detail for edit: helloman12345 (1) by helloman147
+[2025-11-14T15:52:00.713] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T15:52:25.708] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T15:52:42.535] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T15:55:29.111] [INFO] default - Admin fetched user detail for edit: helloman12345 (1) by helloman147
+[2025-11-14T15:55:30.984] [INFO] default - Admin fetched user detail for edit: helloman12345 (1) by helloman147
+[2025-11-14T15:58:57.781] [INFO] default - Admin fetched user detail for edit: helloman12345 (1) by helloman147
+[2025-11-14T15:59:04.209] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T16:06:27.995] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T16:09:53.931] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T16:11:16.397] [INFO] default - Admin login successful: helloman147
+[2025-11-14T16:11:16.467] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-14T16:11:17.650] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T16:11:37.292] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T16:12:10.679] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T16:43:12.385] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T16:49:55.549] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T16:54:07.466] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T16:55:08.654] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T16:55:38.083] [ERROR] default - MQTT INIT FAILED:Connection error: 
