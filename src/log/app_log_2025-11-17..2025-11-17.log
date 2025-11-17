@@ -1,0 +1,730 @@
+[2025-11-17T10:33:43.437] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T10:34:13.044] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T10:34:25.203] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T10:42:35.445] [ERROR] default - Admin login failed: Username helloman123 does not exist
+[2025-11-17T10:42:49.581] [INFO] default - Admin login successful: helloman147
+[2025-11-17T10:42:49.699] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T10:42:51.157] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T10:43:01.300] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T10:43:06.506] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T10:43:09.452] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T10:43:13.165] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T10:43:13.920] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T10:43:19.088] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T10:43:21.681] [ERROR] default - Admin account attempted to access client page: helloman147
+[2025-11-17T10:43:23.882] [ERROR] default - Your account has been login from another place.
+[2025-11-17T10:47:26.588] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T10:49:02.419] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T10:56:58.588] [INFO] default - Admin login successful: helloman147
+[2025-11-17T10:56:58.653] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T10:56:59.789] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T10:57:10.066] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T10:57:11.786] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T10:58:26.656] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T10:58:32.044] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T10:58:33.172] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T10:58:34.322] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T10:58:36.814] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T10:58:42.253] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T10:58:43.228] [INFO] default - Admin fetched user detail for edit: helloman147 (7) by helloman147
+[2025-11-17T10:58:52.089] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:01:53.034] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:03:00.221] [INFO] default - Admin created user: duynv123 (10) by helloman147
+[2025-11-17T11:03:13.261] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:03:35.374] [INFO] default - Admin fetched user detail for edit: duynv123 (10) by helloman147
+[2025-11-17T11:06:57.100] [INFO] default - Admin updated user: duynv123 (10) by helloman147
+[2025-11-17T11:07:04.843] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:07:34.942] [INFO] default - Admin fetched user detail for edit: duynv123 (10) by helloman147
+[2025-11-17T11:07:54.895] [INFO] default - Admin fetched user detail for edit: duynv123 (10) by helloman147
+[2025-11-17T11:07:59.840] [INFO] default - Admin fetched user detail for edit: duynv123 (10) by helloman147
+[2025-11-17T11:08:54.588] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:08:58.339] [INFO] default - Admin fetched user detail for edit: duynv123 (10) by helloman147
+[2025-11-17T11:09:09.847] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:09:49.434] [INFO] default - Admin fetched user detail for edit: duynv123 (10) by helloman147
+[2025-11-17T11:10:04.976] [INFO] default - Admin fetched user detail for edit: duynv123 (10) by helloman147
+[2025-11-17T11:10:07.431] [INFO] default - Admin fetched user detail for edit: duynv123 (10) by helloman147
+[2025-11-17T11:10:08.377] [INFO] default - Admin fetched user detail for edit: duynv123 (10) by helloman147
+[2025-11-17T11:10:08.788] [INFO] default - Admin fetched user detail for edit: duynv123 (10) by helloman147
+[2025-11-17T11:10:16.890] [INFO] default - Admin fetched user detail for edit: duynv123 (10) by helloman147
+[2025-11-17T11:10:25.838] [INFO] default - Admin fetched user detail for edit: duynv123 (10) by helloman147
+[2025-11-17T11:15:48.131] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T11:18:16.313] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:18:23.935] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:20:33.931] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:22:26.764] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:24:08.184] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:24:10.917] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:24:11.304] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:24:11.877] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:24:15.864] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:24:18.604] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:24:19.082] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:24:22.831] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T11:24:52.533] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:24:53.890] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:25:54.889] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:26:08.617] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:26:11.880] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:26:17.890] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:26:52.756] [INFO] default - Admin products list accessed by: helloman147, page: 2, limit: 10
+[2025-11-17T11:26:55.095] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:32:08.253] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T11:32:37.171] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:32:42.835] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:33:58.289] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:34:08.466] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:34:10.439] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:34:50.062] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T11:35:44.385] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T11:36:10.405] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T11:36:34.080] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T11:39:55.447] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T11:40:32.455] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T11:40:47.975] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T11:41:18.384] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T11:41:40.515] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T11:42:21.286] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T11:49:54.158] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:49:56.488] [INFO] default - Admin fetched product detail: RUBIK'S RETRO (1) by helloman147
+[2025-11-17T11:51:22.941] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T11:51:30.196] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T12:02:57.565] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T14:05:00.956] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T14:05:26.538] [ERROR] default - JWT verification failed: jwt expired
+[2025-11-17T14:05:39.841] [INFO] default - Admin login successful: helloman147
+[2025-11-17T14:05:39.920] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T14:05:41.244] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:05:43.096] [INFO] default - Admin fetched product detail: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T14:05:44.455] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:05:45.360] [INFO] default - Admin fetched product detail: Rubik's Master 4x4 (8) by helloman147
+[2025-11-17T14:09:42.976] [INFO] default - Admin fetched product detail: Rubik's Master 4x4 (8) by helloman147
+[2025-11-17T14:09:47.873] [INFO] default - Admin fetched product detail: Rubik's Master 4x4 (8) by helloman147
+[2025-11-17T14:12:40.922] [INFO] default - Admin fetched product detail: Rubik's Master 4x4 (8) by helloman147
+[2025-11-17T14:13:42.428] [INFO] default - Admin fetched product detail: Rubik's Master 4x4 (8) by helloman147
+[2025-11-17T14:13:52.892] [INFO] default - Admin fetched product detail: Rubik's Master 4x4 (8) by helloman147
+[2025-11-17T14:14:03.843] [INFO] default - Admin fetched product detail: Rubik's Master 4x4 (8) by helloman147
+[2025-11-17T14:15:27.921] [INFO] default - Admin fetched product detail: Rubik's Master 4x4 (8) by helloman147
+[2025-11-17T14:15:41.900] [INFO] default - Admin fetched product detail: Rubik's Master 4x4 (8) by helloman147
+[2025-11-17T14:16:04.405] [INFO] default - Admin deleted product: Rubik's Master 4x4 (8) by helloman147
+[2025-11-17T14:16:04.448] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:16:11.327] [INFO] default - Admin fetched product detail: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T14:18:39.871] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T14:18:58.543] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T14:19:28.286] [INFO] default - Admin fetched product detail: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T14:19:46.794] [INFO] default - Admin updated product: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T14:19:49.325] [INFO] default - Admin fetched product detail: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T14:19:55.039] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:19:56.520] [INFO] default - Admin fetched product detail: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T14:20:06.534] [INFO] default - Admin updated product: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T14:20:14.591] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:21:38.933] [INFO] default - Admin fetched product detail: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T14:21:52.916] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:26:16.978] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:26:29.907] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:29:43.618] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:29:44.659] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:30:34.260] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:30:53.001] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:30:58.888] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:32:23.362] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T14:33:13.619] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T14:33:35.776] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T14:34:08.489] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T14:34:26.226] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T14:35:44.125] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T14:38:27.476] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T14:43:07.175] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T14:45:04.176] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T14:49:28.229] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:49:29.504] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T14:49:31.536] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:49:31.974] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:49:33.667] [INFO] default - Admin fetched product detail: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T14:49:42.740] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:49:47.660] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:57:32.680] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T14:57:40.831] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T14:57:42.077] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:57:42.541] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:57:42.975] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:57:45.011] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:57:45.574] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:57:45.707] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:57:45.853] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:58:01.820] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:58:02.893] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:58:03.383] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T14:58:03.867] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:01:03.379] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:02:25.703] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:02:26.941] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:02:27.277] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:02:27.419] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:02:27.573] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:02:28.117] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:02:28.622] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:02:32.363] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:02:33.089] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:02:33.660] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:02:33.961] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:02:35.322] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:05:05.373] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:05:07.290] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:08:48.365] [ERROR] default - JWT verification failed: jwt expired
+[2025-11-17T15:10:25.303] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T15:11:03.478] [ERROR] default - Admin login failed: Invalid password for user helloman147
+[2025-11-17T15:11:11.853] [INFO] default - Admin login successful: helloman147
+[2025-11-17T15:11:11.935] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T15:11:13.570] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:12:28.489] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T15:13:51.856] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:14:43.558] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:18:33.424] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:19:40.854] [INFO] default - Admin fetched category detail: Core Cubes (1) by helloman147
+[2025-11-17T15:19:46.860] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:20:46.269] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:20:47.276] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:26:17.977] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T15:27:12.995] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:27:31.907] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:27:42.036] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:27:50.935] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:27:51.687] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:28:54.393] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:31:01.688] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:31:02.400] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:32:16.335] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:32:20.592] [INFO] default - Admin fetched user detail for edit: helloman12345 (1) by helloman147
+[2025-11-17T15:32:37.940] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:33:22.706] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:51:05.887] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T15:52:44.927] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T15:52:46.215] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:53:04.252] [INFO] default - Reset password successfully
+[2025-11-17T15:55:16.761] [INFO] default - Reset password successfully
+[2025-11-17T15:55:37.627] [INFO] default - Access about page successful
+[2025-11-17T15:55:39.289] [INFO] default - get Rubik successful
+[2025-11-17T15:55:46.660] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:55:47.220] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:55:47.686] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:55:54.572] [INFO] default - Admin created category: Novelty Puzzles (0) by helloman147
+[2025-11-17T15:55:55.401] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:57:06.633] [INFO] default - get Rubik successful
+[2025-11-17T15:57:29.594] [ERROR] default - Admin create category error: E11000 duplicate key error collection: RubikDb.Category index: _id_ dup key: { _id: 1 }
+[2025-11-17T15:57:53.454] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T15:59:09.265] [INFO] default - Admin created category: Multiplayer Games (2) by helloman147
+[2025-11-17T15:59:27.505] [INFO] default - Admin created category: Speed Cubes (3) by helloman147
+[2025-11-17T15:59:31.786] [INFO] default - Admin created category: Bundles (4) by helloman147
+[2025-11-17T15:59:46.634] [INFO] default - get Rubik successful
+[2025-11-17T15:59:48.722] [INFO] default - get Rubik successful
+[2025-11-17T15:59:51.545] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:59:57.862] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:59:58.434] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:59:58.627] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:59:58.796] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T15:59:58.979] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:02:40.409] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:02:40.750] [INFO] default - get Rubik successful
+[2025-11-17T16:12:36.947] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T16:15:43.868] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T16:18:34.705] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T16:19:47.891] [ERROR] default - JWT verification failed: jwt expired
+[2025-11-17T16:20:07.746] [ERROR] default - Admin login failed: Invalid password for user helloman147
+[2025-11-17T16:20:18.861] [ERROR] default - Admin login failed: Invalid password for user helloman147
+[2025-11-17T16:20:33.530] [INFO] default - Admin login successful: helloman147
+[2025-11-17T16:20:33.664] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T16:20:34.729] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:20:35.672] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:20:37.663] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:20:38.398] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:20:39.264] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:20:39.595] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T16:20:39.964] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:20:42.712] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:20:48.963] [INFO] default - Admin fetched category detail: Core Cubes (1) by helloman147
+[2025-11-17T16:20:52.682] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:20:55.627] [INFO] default - Admin deleted category: Core Cubes (1) by helloman147
+[2025-11-17T16:20:55.660] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:21:02.504] [INFO] default - Admin created category: Core Cubes (5) by helloman147
+[2025-11-17T16:21:04.176] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:21:18.185] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:21:21.670] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:21:22.430] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T16:21:22.725] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:21:23.098] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:21:26.208] [INFO] default - Admin fetched product detail: Rubik's Impossible (10) by helloman147
+[2025-11-17T16:21:34.077] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:24:19.164] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:24:32.367] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:25:18.576] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:25:27.152] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:25:28.382] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:26:08.736] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:26:18.363] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:26:19.566] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:26:19.860] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:26:23.698] [INFO] default - Admin fetched product detail: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T16:26:26.110] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:26:28.622] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:26:28.975] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:26:29.372] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:26:41.178] [INFO] default - Admin fetched user detail for edit: duynv123 (10) by helloman147
+[2025-11-17T16:26:52.157] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:37:58.833] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:38:01.378] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:38:02.290] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T16:38:02.461] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:41:06.040] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:42:14.494] [INFO] default - get Rubik successful
+[2025-11-17T16:42:25.727] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:42:27.535] [INFO] default - Admin fetched product detail: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T16:46:17.433] [INFO] default - Admin fetched product detail: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T16:46:17.442] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:46:17.573] [INFO] default - get Rubik successful
+[2025-11-17T16:46:28.381] [INFO] default - Admin fetched product detail: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T16:46:28.388] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:46:28.728] [INFO] default - get Rubik successful
+[2025-11-17T16:46:38.372] [INFO] default - Admin fetched product detail: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T16:46:38.377] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:46:38.412] [INFO] default - get Rubik successful
+[2025-11-17T16:46:47.410] [INFO] default - Admin fetched product detail: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T16:46:47.416] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:46:47.462] [INFO] default - get Rubik successful
+[2025-11-17T16:47:10.362] [INFO] default - Admin fetched product detail: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T16:47:10.368] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:47:19.479] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:47:21.372] [INFO] default - Admin fetched product detail: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T16:47:21.381] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:48:40.789] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:48:40.796] [INFO] default - Admin fetched product detail: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T16:48:59.864] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:49:01.022] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:49:10.637] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:49:11.446] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:49:11.774] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:49:40.932] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T16:50:37.931] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:50:40.131] [INFO] default - Admin fetched product detail: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T16:50:40.137] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:50:45.524] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:50:46.492] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:50:49.431] [INFO] default - Admin fetched category detail: Core Cubes (5) by helloman147
+[2025-11-17T16:50:50.743] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:50:51.221] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:50:54.309] [INFO] default - Admin fetched user detail for edit: helloman12345 (1) by helloman147
+[2025-11-17T16:50:58.133] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:51:04.826] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:51:11.345] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:51:14.062] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:51:16.444] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:51:17.383] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T16:51:18.459] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:51:19.214] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T16:51:37.494] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T16:51:38.019] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T16:51:38.196] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T16:51:38.341] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T16:51:38.491] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T16:51:38.628] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T16:51:38.765] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T16:51:40.245] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:51:44.208] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T16:51:44.400] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:51:48.342] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:51:55.637] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:53:12.310] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:53:12.484] [INFO] default - get Rubik successful
+[2025-11-17T16:53:44.021] [INFO] default - get Rubik successful
+[2025-11-17T16:53:44.110] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:54:40.599] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:54:41.339] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:54:43.143] [INFO] default - Admin fetched product detail: Rubik's 3x3 (6) by helloman147
+[2025-11-17T16:54:43.147] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:54:50.430] [INFO] default - Admin updated product: Rubik's 3x3 (6) by helloman147
+[2025-11-17T16:54:53.529] [INFO] default - Admin fetched product detail: Rubik's 3x3 (6) by helloman147
+[2025-11-17T16:54:53.535] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:54:54.163] [INFO] default - Admin fetched product detail: Rubik's 3x3 (6) by helloman147
+[2025-11-17T16:54:54.166] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:54:57.950] [INFO] default - Admin updated product: Rubik's 3x3 (6) by helloman147
+[2025-11-17T16:55:21.208] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:55:21.804] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T16:55:22.384] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:55:24.932] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:55:25.562] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T16:55:26.629] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:55:26.951] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T16:55:28.896] [INFO] default - Admin fetched product detail: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T16:55:28.901] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:58:08.447] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T16:58:11.315] [INFO] default - Admin updated product: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T16:58:15.010] [INFO] default - Admin fetched product detail: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T16:58:15.016] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T16:59:46.696] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T17:06:16.281] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T17:06:44.180] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T17:07:34.675] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T17:08:54.640] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T17:10:42.964] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T17:10:56.991] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T17:11:49.353] [INFO] default - Admin updated product: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T17:11:55.602] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T17:12:43.495] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T17:12:43.499] [INFO] default - Admin fetched product detail: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T17:12:55.482] [INFO] default - Admin fetched product detail: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T17:12:55.485] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T17:12:59.831] [INFO] default - Admin updated product: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T17:13:03.536] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T17:13:03.538] [INFO] default - Admin fetched product detail: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T17:13:07.775] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T17:13:09.792] [INFO] default - Admin fetched product detail: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-17T17:13:09.795] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T17:13:11.444] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T17:13:12.327] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T17:13:12.329] [INFO] default - Admin fetched product detail: Rubik's Edge (7) by helloman147
+[2025-11-17T17:13:21.477] [INFO] default - Admin updated product: Rubik's Edge (7) by helloman147
+[2025-11-17T17:13:24.756] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T17:13:27.393] [INFO] default - Admin fetched product detail: Rubik's 3x3 (6) by helloman147
+[2025-11-17T17:13:27.400] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T17:13:30.595] [INFO] default - Admin updated product: Rubik's 3x3 (6) by helloman147
+[2025-11-17T17:13:32.242] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T17:13:34.705] [INFO] default - Admin fetched product detail: Rubik's Cube It (5) by helloman147
+[2025-11-17T17:13:34.709] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T17:13:40.188] [INFO] default - Admin updated product: Rubik's Cube It (5) by helloman147
+[2025-11-17T17:13:41.719] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T17:13:44.183] [INFO] default - Admin fetched product detail: Rubik's 3x3 Phantom (4) by helloman147
+[2025-11-17T17:13:44.191] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T17:13:47.087] [INFO] default - Admin updated product: Rubik's 3x3 Phantom (4) by helloman147
+[2025-11-17T17:13:49.076] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T17:13:51.799] [INFO] default - Admin fetched product detail: Rubik's Apprentice 2x2 (3) by helloman147
+[2025-11-17T17:13:51.806] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T17:13:55.269] [INFO] default - Admin updated product: Rubik's Apprentice 2x2 (3) by helloman147
+[2025-11-17T17:13:56.998] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T17:14:00.383] [INFO] default - Admin fetched product detail: Rubik's Connector Snake 2-Pack (2) by helloman147
+[2025-11-17T17:14:00.388] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T17:14:04.960] [INFO] default - Admin updated product: Rubik's Connector Snake 2-Pack (2) by helloman147
+[2025-11-17T17:14:06.974] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T17:14:08.935] [INFO] default - Admin fetched product detail: Rubik's Impossible (10) by helloman147
+[2025-11-17T17:14:08.941] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T17:14:14.938] [INFO] default - Admin updated product: Rubik's Impossible (10) by helloman147
+[2025-11-17T17:14:17.061] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T17:14:19.800] [INFO] default - Admin fetched product detail: Rubik's Coach Cube (1) by helloman147
+[2025-11-17T17:14:19.804] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T17:14:24.004] [INFO] default - Admin updated product: Rubik's Coach Cube (1) by helloman147
+[2025-11-17T17:14:26.775] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T17:14:28.198] [INFO] default - Admin fetched product detail: Rubik's Coach Cube (1) by helloman147
+[2025-11-17T17:14:28.207] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-17T17:14:31.007] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T17:14:54.297] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T17:17:20.058] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T17:17:47.187] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T17:22:49.371] [INFO] default - Access about page successful
+[2025-11-17T17:22:52.050] [INFO] default - get Rubik successful
+[2025-11-17T17:23:12.160] [ERROR] default - JWT verification failed: jwt expired
+[2025-11-17T17:23:27.691] [INFO] default - Admin login successful: helloman147
+[2025-11-17T17:23:27.779] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T17:23:28.930] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T17:23:31.445] [INFO] default - Admin fetched category detail: Bundles (4) by helloman147
+[2025-11-17T17:23:36.014] [INFO] default - Admin updated category: Bundle (4) by helloman147
+[2025-11-17T17:23:42.582] [INFO] default - get Rubik successful
+[2025-11-17T17:23:43.442] [INFO] default - get Rubik successful
+[2025-11-17T17:23:43.681] [INFO] default - get Rubik successful
+[2025-11-17T17:23:43.839] [INFO] default - get Rubik successful
+[2025-11-17T17:25:56.227] [INFO] default - Admin fetched category detail: Bundle (4) by helloman147
+[2025-11-17T17:25:56.259] [INFO] default - get Rubik successful
+[2025-11-17T17:25:56.344] [ERROR] default - Unauthorized admin access attempt by user: helloman12345
+[2025-11-17T17:26:18.390] [INFO] default - get Rubik successful
+[2025-11-17T17:26:18.447] [ERROR] default - Unauthorized admin access attempt by user: helloman12345
+[2025-11-17T17:26:19.185] [INFO] default - get Rubik successful
+[2025-11-17T17:26:19.213] [ERROR] default - Unauthorized admin access attempt by user: helloman12345
+[2025-11-17T17:34:13.716] [INFO] default - get Rubik successful
+[2025-11-17T17:34:13.740] [ERROR] default - Unauthorized admin access attempt by user: helloman12345
+[2025-11-17T17:34:19.242] [INFO] default - get product-detail Rubiks Coach Cube successfull
+[2025-11-17T17:34:20.426] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T17:37:23.390] [INFO] default - get Rubik successful
+[2025-11-17T17:37:23.476] [INFO] default - Admin fetched category detail: Bundle (4) by helloman147
+[2025-11-17T17:37:35.474] [INFO] default - get Rubik successful
+[2025-11-17T17:41:21.092] [INFO] default - get Rubik successful
+[2025-11-17T17:41:21.310] [INFO] default - get Rubik successful
+[2025-11-17T17:42:48.440] [INFO] default - get Rubik successful
+[2025-11-17T17:42:48.478] [INFO] default - Admin fetched category detail: Bundle (4) by helloman147
+[2025-11-17T17:42:56.677] [INFO] default - get Rubik successful
+[2025-11-17T17:42:56.864] [INFO] default - get Rubik successful
+[2025-11-17T17:42:57.265] [INFO] default - get Rubik successful
+[2025-11-17T17:42:58.678] [INFO] default - Access about page successful
+[2025-11-17T17:43:00.384] [INFO] default - get Rubik successful
+[2025-11-17T17:43:49.397] [INFO] default - get Rubik successful
+[2025-11-17T17:43:49.428] [INFO] default - Admin fetched category detail: Bundle (4) by helloman147
+[2025-11-17T17:43:57.450] [INFO] default - Admin fetched category detail: Bundle (4) by helloman147
+[2025-11-17T17:43:57.510] [INFO] default - get Rubik successful
+[2025-11-17T17:43:57.584] [INFO] default - Client fetched categories list successfully
+[2025-11-17T18:05:58.195] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T18:06:18.072] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T18:06:41.376] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T18:07:20.655] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T18:17:56.600] [INFO] default - Admin fetched category detail: Bundle (4) by helloman147
+[2025-11-17T18:17:58.591] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T18:17:59.406] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T18:18:01.166] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T18:18:01.882] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T18:18:02.534] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T18:18:07.174] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T18:19:07.490] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T18:19:07.574] [INFO] default - get Rubik successful
+[2025-11-17T18:19:07.691] [INFO] default - Client fetched categories list successfully
+[2025-11-17T18:20:33.510] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T18:23:57.974] [ERROR] default - JWT verification failed: jwt expired
+[2025-11-17T18:24:16.884] [INFO] default - Access about page successful
+[2025-11-17T18:24:18.231] [INFO] default - get Rubik successful
+[2025-11-17T18:24:18.253] [INFO] default - Client fetched categories list successfully
+[2025-11-17T18:25:29.455] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T18:26:00.018] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T18:26:11.080] [INFO] default - get Rubik successful
+[2025-11-17T18:26:11.150] [INFO] default - Client fetched categories list successfully
+[2025-11-17T18:26:11.291] [INFO] default - get Rubik successful
+[2025-11-17T18:26:11.342] [INFO] default - Client fetched categories list successfully
+[2025-11-17T18:26:12.701] [INFO] default - get Rubik successful
+[2025-11-17T18:26:12.751] [INFO] default - Client fetched categories list successfully
+[2025-11-17T18:26:17.894] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T18:26:23.129] [ERROR] default - JWT verification failed: jwt expired
+[2025-11-17T18:26:23.784] [ERROR] default - JWT verification failed: jwt expired
+[2025-11-17T18:26:23.945] [ERROR] default - JWT verification failed: jwt expired
+[2025-11-17T18:26:24.717] [ERROR] default - JWT verification failed: jwt expired
+[2025-11-17T18:26:40.263] [INFO] default - Admin login successful: helloman147
+[2025-11-17T18:26:40.330] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-17T18:26:41.301] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T18:26:45.932] [INFO] default - Access about page successful
+[2025-11-17T18:26:47.076] [INFO] default - get Rubik successful
+[2025-11-17T18:26:47.109] [INFO] default - Client fetched categories list successfully
+[2025-11-17T18:26:48.768] [INFO] default - get Rubik successful
+[2025-11-17T18:26:48.817] [INFO] default - Client fetched categories list successfully
+[2025-11-17T18:26:49.191] [INFO] default - get Rubik successful
+[2025-11-17T18:26:49.226] [INFO] default - Client fetched categories list successfully
+[2025-11-17T18:26:49.365] [INFO] default - get Rubik successful
+[2025-11-17T18:26:49.414] [INFO] default - Client fetched categories list successfully
+[2025-11-17T18:27:35.450] [INFO] default - get Rubik successful
+[2025-11-17T18:27:35.506] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T18:27:35.508] [INFO] default - Client fetched categories list successfully
+[2025-11-17T18:30:52.373] [INFO] default - Access about page successful
+[2025-11-17T18:31:40.448] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T18:31:41.731] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-17T18:46:02.132] [INFO] default - Access about page successful
+[2025-11-17T18:46:03.775] [INFO] default - get Rubik successful
+[2025-11-17T18:46:03.810] [INFO] default - Client fetched categories list successfully
+[2025-11-17T18:46:06.699] [INFO] default - get Rubik successful
+[2025-11-17T18:46:06.769] [INFO] default - Client fetched categories list successfully
+[2025-11-17T18:46:08.142] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T18:46:14.123] [INFO] default - Access about page successful
+[2025-11-17T18:46:14.610] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-17T18:46:14.639] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-17T18:46:14.661] [INFO] default - get product-detail Rubik's Apprentice 2x2 successfull
+[2025-11-17T18:46:16.308] [INFO] default - get Rubik successful
+[2025-11-17T18:46:16.329] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:13:26.214] [INFO] default - get Rubik successful
+[2025-11-17T19:13:26.251] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:13:30.576] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T19:13:33.811] [INFO] default - get Rubik successful
+[2025-11-17T19:13:33.882] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:13:34.146] [INFO] default - get Rubik successful
+[2025-11-17T19:13:34.183] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:13:34.332] [INFO] default - get Rubik successful
+[2025-11-17T19:13:34.365] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:13:34.514] [INFO] default - get Rubik successful
+[2025-11-17T19:13:34.565] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:14:18.066] [INFO] default - get Rubik successful
+[2025-11-17T19:14:18.135] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:14:18.817] [INFO] default - get Rubik successful
+[2025-11-17T19:14:18.851] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:14:19.078] [INFO] default - get Rubik successful
+[2025-11-17T19:14:19.127] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:14:19.362] [INFO] default - get Rubik successful
+[2025-11-17T19:14:19.412] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:14:19.593] [INFO] default - get Rubik successful
+[2025-11-17T19:14:19.682] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:14:19.785] [INFO] default - get Rubik successful
+[2025-11-17T19:14:19.852] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:14:20.117] [INFO] default - get Rubik successful
+[2025-11-17T19:14:20.268] [INFO] default - get Rubik successful
+[2025-11-17T19:14:20.316] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:14:20.542] [INFO] default - get Rubik successful
+[2025-11-17T19:14:20.593] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:14:21.269] [INFO] default - Access about page successful
+[2025-11-17T19:14:21.892] [INFO] default - get Rubik successful
+[2025-11-17T19:14:21.919] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:14:22.327] [INFO] default - get product-detail Rubik's Coach Cube successfull
+[2025-11-17T19:14:22.363] [INFO] default - get product-detail Rubik's 3x3 successfull
+[2025-11-17T19:14:22.388] [INFO] default - get product-detail Rubik's Apprentice 2x2 successfull
+[2025-11-17T19:14:26.022] [INFO] default - GET DEVICE LIST SUCCESSFULLY FOR USER helloman12345
+[2025-11-17T19:15:18.842] [INFO] default - get Rubik successful
+[2025-11-17T19:15:18.882] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:18:44.225] [INFO] default - Close Log SSE Successfully.
+[2025-11-17T19:18:44.798] [INFO] default - get Rubik successful
+[2025-11-17T19:18:44.843] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:26:19.368] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T19:26:51.476] [INFO] default - get Rubik successful
+[2025-11-17T19:26:51.511] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:27:13.168] [INFO] default - Access about page successful
+[2025-11-17T19:27:14.384] [INFO] default - get Rubik successful
+[2025-11-17T19:27:14.414] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:27:22.278] [INFO] default - get Rubik successful
+[2025-11-17T19:27:22.294] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:27:22.416] [INFO] default - get Rubik successful
+[2025-11-17T19:27:22.429] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:27:22.561] [INFO] default - get Rubik successful
+[2025-11-17T19:27:22.578] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:27:22.752] [INFO] default - get Rubik successful
+[2025-11-17T19:27:22.769] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:28:36.874] [INFO] default - get Rubik successful
+[2025-11-17T19:28:37.286] [ERROR] default - Your account has been login from another place.
+[2025-11-17T19:28:37.300] [ERROR] default - Your account has been login from another place.
+[2025-11-17T19:28:37.627] [INFO] default - get product-detail Rubiks Connector Snake 2 Pack successfull
+[2025-11-17T19:28:40.835] [INFO] default - get Rubik successful
+[2025-11-17T19:28:42.052] [INFO] default - get product-detail Rubiks Coach Cube successfull
+[2025-11-17T19:28:43.399] [INFO] default - get Rubik successful
+[2025-11-17T19:28:44.064] [INFO] default - get product-detail Rubiks Connector Snake 2 Pack successfull
+[2025-11-17T19:28:47.342] [INFO] default - get Rubik successful
+[2025-11-17T19:28:48.103] [INFO] default - get product-detail Rubiks Apprentice 2x2 successfull
+[2025-11-17T19:28:51.493] [INFO] default - get Rubik successful
+[2025-11-17T19:28:52.246] [INFO] default - get product-detail Rubiks 3x3 Phantom successfull
+[2025-11-17T19:28:56.462] [INFO] default - get Rubik successful
+[2025-11-17T19:29:03.593] [INFO] default - get Rubik successful
+[2025-11-17T19:29:03.683] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:29:07.746] [INFO] default - get Rubik successful
+[2025-11-17T19:29:07.767] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:29:08.281] [INFO] default - get Rubik successful
+[2025-11-17T19:29:08.319] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:29:17.629] [INFO] default - get Rubik successful
+[2025-11-17T19:29:19.499] [INFO] default - get Rubik successful
+[2025-11-17T19:29:19.534] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:31:57.701] [INFO] default - get Rubik successful
+[2025-11-17T19:31:57.755] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:32:33.868] [INFO] default - get Rubik successful
+[2025-11-17T19:32:33.917] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:32:39.443] [INFO] default - Access about page successful
+[2025-11-17T19:32:40.231] [INFO] default - get Rubik successful
+[2025-11-17T19:32:40.251] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:34:47.135] [INFO] default - get Rubik successful
+[2025-11-17T19:34:47.169] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:34:47.572] [INFO] default - get product-detail Rubiks Connector Snake 2 Pack successfull
+[2025-11-17T19:34:49.773] [INFO] default - get Rubik successful
+[2025-11-17T19:34:49.814] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:34:50.800] [INFO] default - get product-detail Rubiks Apprentice 2x2 successfull
+[2025-11-17T19:34:51.840] [INFO] default - get Rubik successful
+[2025-11-17T19:34:51.876] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:34:52.494] [INFO] default - get product-detail Rubiks Connector Snake 2 Pack successfull
+[2025-11-17T19:34:54.131] [INFO] default - get Rubik successful
+[2025-11-17T19:34:54.161] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:34:54.867] [INFO] default - get product-detail Rubiks Coach Cube successfull
+[2025-11-17T19:34:55.270] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T19:34:56.262] [INFO] default - get Rubik successful
+[2025-11-17T19:34:56.305] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:36:00.310] [INFO] default - get Rubik successful
+[2025-11-17T19:36:00.394] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:36:39.650] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T19:36:40.724] [INFO] default - get Rubik successful
+[2025-11-17T19:36:40.752] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:37:34.866] [INFO] default - get Rubik successful
+[2025-11-17T19:37:34.899] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:37:46.531] [INFO] default - get Rubik successful
+[2025-11-17T19:37:46.552] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:37:49.404] [INFO] default - get Rubik successful
+[2025-11-17T19:37:49.427] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:37:51.410] [INFO] default - get Rubik successful
+[2025-11-17T19:37:51.443] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:38:04.511] [INFO] default - get Rubik successful
+[2025-11-17T19:38:04.532] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:38:17.811] [INFO] default - get Rubik successful
+[2025-11-17T19:38:17.827] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:38:18.494] [INFO] default - get Rubik successful
+[2025-11-17T19:38:18.515] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:38:18.649] [INFO] default - get Rubik successful
+[2025-11-17T19:38:18.669] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:38:18.811] [INFO] default - get Rubik successful
+[2025-11-17T19:38:18.838] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:38:20.329] [INFO] default - get Rubik successful
+[2025-11-17T19:38:20.350] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:39:34.441] [INFO] default - get Rubik successful
+[2025-11-17T19:39:34.476] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:39:40.320] [INFO] default - get Rubik successful
+[2025-11-17T19:39:40.350] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:39:41.001] [INFO] default - get Rubik successful
+[2025-11-17T19:39:41.025] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:39:41.160] [INFO] default - get Rubik successful
+[2025-11-17T19:39:41.176] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:39:41.349] [INFO] default - get Rubik successful
+[2025-11-17T19:39:41.380] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:39:41.503] [INFO] default - get Rubik successful
+[2025-11-17T19:39:41.522] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:39:41.648] [INFO] default - get Rubik successful
+[2025-11-17T19:39:41.671] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:39:46.448] [INFO] default - get Rubik successful
+[2025-11-17T19:39:46.470] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:39:50.791] [INFO] default - get Rubik successful
+[2025-11-17T19:39:50.848] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:39:52.278] [INFO] default - get Rubik successful
+[2025-11-17T19:39:52.307] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:39:52.636] [INFO] default - get Rubik successful
+[2025-11-17T19:39:52.666] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:39:52.952] [INFO] default - get Rubik successful
+[2025-11-17T19:39:52.966] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:39:53.101] [INFO] default - get Rubik successful
+[2025-11-17T19:39:53.118] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:39:53.257] [INFO] default - get Rubik successful
+[2025-11-17T19:39:53.270] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:39:53.399] [INFO] default - get Rubik successful
+[2025-11-17T19:39:53.417] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:39:53.584] [INFO] default - get Rubik successful
+[2025-11-17T19:39:53.640] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:39:53.732] [INFO] default - get Rubik successful
+[2025-11-17T19:39:53.748] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:39:53.898] [INFO] default - get Rubik successful
+[2025-11-17T19:39:53.932] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:39:54.643] [INFO] default - get Rubik successful
+[2025-11-17T19:39:54.665] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:40:06.636] [INFO] default - get Rubik successful
+[2025-11-17T19:40:06.686] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:40:07.622] [INFO] default - get Rubik successful
+[2025-11-17T19:40:07.651] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:40:08.464] [INFO] default - get Rubik successful
+[2025-11-17T19:40:08.487] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:40:16.447] [INFO] default - get Rubik successful
+[2025-11-17T19:40:16.470] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:40:37.613] [INFO] default - get Rubik successful
+[2025-11-17T19:40:37.678] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:40:40.556] [INFO] default - get Rubik successful
+[2025-11-17T19:40:40.583] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:40:42.279] [INFO] default - get Rubik successful
+[2025-11-17T19:40:42.297] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:40:42.900] [INFO] default - get Rubik successful
+[2025-11-17T19:40:42.916] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:40:43.079] [INFO] default - get Rubik successful
+[2025-11-17T19:40:43.199] [INFO] default - get Rubik successful
+[2025-11-17T19:40:43.224] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:40:49.629] [INFO] default - get Rubik successful
+[2025-11-17T19:40:49.659] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:40:51.529] [INFO] default - get Rubik successful
+[2025-11-17T19:40:51.564] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:40:53.110] [INFO] default - get Rubik successful
+[2025-11-17T19:40:53.126] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:40:53.636] [INFO] default - get Rubik successful
+[2025-11-17T19:40:53.652] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:40:53.809] [INFO] default - get Rubik successful
+[2025-11-17T19:40:53.822] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:40:53.981] [INFO] default - get Rubik successful
+[2025-11-17T19:40:54.028] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:40:54.160] [INFO] default - get Rubik successful
+[2025-11-17T19:40:54.293] [INFO] default - get Rubik successful
+[2025-11-17T19:40:54.333] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:40:54.581] [INFO] default - get Rubik successful
+[2025-11-17T19:40:54.601] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:40:55.255] [INFO] default - get Rubik successful
+[2025-11-17T19:40:55.274] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:41:02.522] [INFO] default - get Rubik successful
+[2025-11-17T19:41:02.590] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:41:04.385] [INFO] default - get Rubik successful
+[2025-11-17T19:41:04.409] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:41:09.473] [INFO] default - get Rubik successful
+[2025-11-17T19:41:09.499] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:41:13.511] [INFO] default - get Rubik successful
+[2025-11-17T19:41:13.548] [INFO] default - Client fetched categories list successfully
+[2025-11-17T19:41:18.101] [INFO] default - get Rubik successful
+[2025-11-17T19:41:18.118] [INFO] default - Client fetched categories list successfully

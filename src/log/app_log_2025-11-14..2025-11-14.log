@@ -186,3 +186,9 @@
 [2025-11-14T16:54:07.466] [ERROR] default - MQTT INIT FAILED:Connection error: 
 [2025-11-14T16:55:08.654] [ERROR] default - MQTT INIT FAILED:Connection error: 
 [2025-11-14T16:55:38.083] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T17:34:39.906] [INFO] default - Admin login successful: helloman147
+[2025-11-14T17:34:39.979] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-14T17:34:41.190] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-14T17:34:41.666] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-14T17:34:44.225] [ERROR] default - Admin account attempted to access client page: helloman147
+[2025-11-14T17:34:45.400] [ERROR] default - Session expired or account logged in from another place.

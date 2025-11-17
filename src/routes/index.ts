@@ -1,5 +1,5 @@
 import * as express from 'express'
-import {user,room_user,user_room_detail,rubik_info,image_detail,social_account,session,role,rubikProblem,rubikProblemDetail,temp_device,device} from '../models/user_model';
+import {user,room_user,user_room_detail,rubik_info,image_detail,social_account,session,role,rubikProblem,rubikProblemDetail,temp_device,device,category} from '../models/user_model';
 import checkingDuplicateUserNameOrEmail from '../config/checking';
 import {token_checking,email_token_checking,admin_checking,user_only_checking} from '../config/checkingToken';
 import {username,password,loginUrl,registerServerUrl} from './gmail_account';
@@ -922,7 +922,7 @@ router.post('/admin/login',async function(req,res,next){
   catch(err)
   {
     logger.error("Admin login error: "+err.message);
-    res.status(500).send({status:false,message:"Internal server error"});
+    res.status(500).send({status:false,message:"Internal server error"});    
   }
 });
 
@@ -1062,7 +1062,7 @@ router.get('/admin/dashboard',admin_checking,async function(req,res,next){
   }
 });
 
-// 管理员用户列表API - 获取用户列表（仅客户端用户）
+// 管理员用户列表API - 获取用户列表（所有用户类型）
 
 router.get('/admin/users', admin_checking, async function(req, res, next) {
   try {
@@ -1075,30 +1075,17 @@ router.get('/admin/users', admin_checking, async function(req, res, next) {
     // 计算跳过的记录数
     const skip = (page - 1) * limit;
   
-    // 获取所有管理员角色ID，用于排除管理员用户
-    const adminRoles = await role.find({ role_type: 'Admin' });
-    
-    const adminRoleIds = adminRoles.map(r => r._id);
-    
     // 构建查询条件数组
     const conditions: any[] = [];
 
     // 构建role_id条件
     let roleIdCondition: any = {};
     
-    // 排除管理员用户（只返回客户端用户）
-    if (adminRoleIds.length > 0) {
-      roleIdCondition.$nin = adminRoleIds;
-    }
-    
-    // 角色过滤（仅对客户端角色有效）
+    // 角色过滤（包括所有角色类型，包括Admin）
     if (roleFilter) {
-      // 先查找匹配的角色ID（排除Admin角色）
+      // 查找匹配的角色ID（包括Admin角色）
       const roles = await role.find({ 
-        $and: [
-          { role_type: { $regex: roleFilter, $options: 'i' } },
-          { role_type: { $ne: 'Admin' } }
-        ]
+        role_type: { $regex: roleFilter, $options: 'i' }
       });
       
       const roleIds = roles.map(r => r._id);
@@ -1563,6 +1550,270 @@ router.get('/admin/users/:id/delete', admin_checking, async function(req, res, n
   }
 });
 
+// 管理员 - 分类列表
+router.get('/admin/categories', admin_checking, async function(req, res, next) {
+  try {
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 10;
+    const search = typeof req.query.search === 'string' ? req.query.search.trim() : '';
+    const skip = (page - 1) * limit;
+
+    const query: Record<string, any> = {};
+    if (search) {
+      query.category_name = { $regex: escapeRegExp(search), $options: 'i' };
+    }
+
+    const totalCategories = await category.countDocuments(query);
+
+    const categories = await category.find(query)
+      .sort({ _id: -1 })
+      .skip(skip)
+      .limit(limit)
+      .lean();
+
+    logger.info(`Admin categories list accessed by: ${req.username}, page: ${page}, limit: ${limit}`);
+
+    return res.status(200).json({
+      status: true,
+      message: 'Categories retrieved successfully',
+      data: {
+        categories,
+        pagination: {
+          currentPage: page,
+          totalPages: Math.ceil(totalCategories / limit),
+          totalCategories,
+          limit,
+          hasNextPage: page * limit < totalCategories,
+          hasPrevPage: page > 1
+        }
+      }
+    });
+  } catch (err) {
+    logger.error('Admin categories list error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
+// 管理员 - 创建分类
+router.post('/admin/categories', admin_checking, async function(req, res, next) {
+  try {
+    const { category_name } = req.body || {};
+    
+    const trimmedName = typeof category_name === 'string' ? category_name.trim() : '';
+
+    if (!trimmedName) {
+      return res.status(400).json({
+        status: false,
+        message: 'category_name is required'
+      });
+    }
+
+    const nameRegex = new RegExp(`^${escapeRegExp(trimmedName)}$`, 'i');
+    const existingCategory = await category.findOne({ category_name: nameRegex }).lean();
+
+    if (existingCategory) {
+      return res.status(409).json({
+        status: false,
+        message: 'Category name already exists'
+      });
+    }
+
+    const nowIso = new Date().toISOString();
+    const newCategory = new category({
+      category_name: trimmedName,
+      created_date: nowIso,
+      updated_date: nowIso
+    });
+
+    await newCategory.save();
+
+    logger.info(`Admin created category: ${trimmedName} (${newCategory._id}) by ${req.username}`);
+
+    return res.status(201).json({
+      status: true,
+      message: 'Category created successfully',
+      data: {
+        category: newCategory
+      }
+    });
+  } catch (err) {
+    logger.error('Admin create category error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
+// 管理员 - 获取分类详情
+router.get('/admin/categories/:id', admin_checking, async function(req, res, next) {
+  try {
+    const categoryId = Number(req.params.id);
+
+    if (!Number.isInteger(categoryId)) {
+      return res.status(400).json({
+        status: false,
+        message: 'Invalid category ID'
+      });
+    }
+
+    const categoryDetail = await category.findOne({ _id: categoryId }).lean();
+
+    if (!categoryDetail) {
+      return res.status(404).json({
+        status: false,
+        message: 'Category not found'
+      });
+    }
+
+    logger.info(`Admin fetched category detail: ${categoryDetail.category_name} (${categoryId}) by ${req.username}`);
+
+    return res.status(200).json({
+      status: true,
+      message: 'Category detail retrieved successfully',
+      data: {
+        category: categoryDetail
+      }
+    });
+  } catch (err) {
+    logger.error('Admin category detail error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
+// 管理员 - 更新分类（使用PUT）
+router.post('/admin/categories/:id', admin_checking, async function(req, res, next) {
+  try {
+    const categoryId = Number(req.params.id);
+
+    if (!Number.isInteger(categoryId)) {
+      return res.status(400).json({
+        status: false,
+        message: 'Invalid category ID'
+      });
+    }
+
+    const categoryDetail = await category.findOne({ _id: categoryId }).lean();
+
+    if (!categoryDetail) {
+      return res.status(404).json({
+        status: false,
+        message: 'Category not found'
+      });
+    }
+
+    const { category_name } = req.body || {};
+    const trimmedName = typeof category_name === 'string' ? category_name.trim() : '';
+
+    if (!trimmedName) {
+      return res.status(400).json({
+        status: false,
+        message: 'category_name is required'
+      });
+    }
+
+    const duplicate = await category.findOne({
+      _id: { $ne: categoryId },
+      category_name: new RegExp(`^${escapeRegExp(trimmedName)}$`, 'i')
+    }).lean();
+
+    if (duplicate) {
+      return res.status(409).json({
+        status: false,
+        message: 'Category name already exists'
+      });
+    }
+
+    const nowIso = new Date().toISOString();
+
+    await category.updateOne(
+      { _id: categoryId },
+      {
+        $set: {
+          category_name: trimmedName,
+          updated_date: nowIso
+        }
+      }
+    );
+
+    const updatedCategory = await category.findOne({ _id: categoryId }).lean();
+
+    logger.info(`Admin updated category: ${updatedCategory?.category_name} (${categoryId}) by ${req.username}`);
+
+    return res.status(200).json({
+      status: true,
+      message: 'Category updated successfully',
+      data: {
+        category: updatedCategory
+      }
+    });
+  } catch (err) {
+    logger.error('Admin update category error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
+// 管理员 - 删除分类（使用GET）
+router.get('/admin/categories/:id/delete', admin_checking, async function(req, res, next) {
+  try {
+    const categoryId = Number(req.params.id);
+
+    if (!Number.isInteger(categoryId)) {
+      return res.status(400).json({
+        status: false,
+        message: 'Invalid category ID'
+      });
+    }
+
+    const categoryDetail = await category.findOne({ _id: categoryId }).lean();
+
+    if (!categoryDetail) {
+      return res.status(404).json({
+        status: false,
+        message: 'Category not found'
+      });
+    }
+
+    const relatedProducts = await rubik_info.countDocuments({ category_id: categoryId });
+
+    if (relatedProducts > 0) {
+      return res.status(409).json({
+        status: false,
+        message: 'Cannot delete category with associated products'
+      });
+    }
+
+    await category.deleteOne({ _id: categoryId });
+
+    logger.info(`Admin deleted category: ${categoryDetail.category_name} (${categoryId}) by ${req.username}`);
+
+    return res.status(200).json({
+      status: true,
+      message: 'Category deleted successfully'
+    });
+  } catch (err) {
+    logger.error('Admin delete category error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
 // 管理员 - 产品列表
 router.get('/admin/products', admin_checking, async function(req, res, next) {
   try {
@@ -1613,7 +1864,6 @@ router.get('/admin/products', admin_checking, async function(req, res, next) {
   }
 });
 
-// 管理员 - 创建产品
 router.post('/admin/products', admin_checking, async function(req, res, next) {
   try {
     const {
@@ -1694,31 +1944,36 @@ router.post('/admin/products', admin_checking, async function(req, res, next) {
 // 管理员 - 获取单个产品详情
 router.get('/admin/products/:id/edit', admin_checking, async function(req, res, next) {
   try {
-    const productId = Number(req.params.id);
+    const productId = req.params.id;
 
-    if (!Number.isInteger(productId)) {
+    if (!productId || typeof productId !== 'string' || productId.trim() === '') {
       return res.status(400).json({
         status: false,
         message: 'Invalid product ID'
       });
     }
 
-    const productDetail = await rubik_info.findOne({ _id: productId }).lean();
+    const productDetail = await rubik_info.findOne({ _id: productId.trim() }).lean();
 
     if (!productDetail) {
+    console.log("Product not found");
       return res.status(404).json({
         status: false,
         message: 'Product not found'
       });
     }
 
-    logger.info(`Admin fetched product detail: ${productDetail.name} (${productId}) by ${req.username}`);
+    // Fetch category information so the edit page can show and change category
+    const categories = await category.find({}).lean();
+
+    logger.info(`Admin fetched product detail: ${productDetail.name} (${productId.trim()}) by ${req.username}`);
 
     return res.status(200).json({
       status: true,
       message: 'Product detail retrieved successfully',
       data: {
-        product: productDetail
+        product: productDetail,
+        categories: categories
       }
     });
   } catch (err) {
@@ -1734,16 +1989,20 @@ router.get('/admin/products/:id/edit', admin_checking, async function(req, res, 
 // 管理员 - 更新产品信息（使用POST）
 router.post('/admin/products/:id', admin_checking, async function(req, res, next) {
   try {
-    const productId = Number(req.params.id);
 
-    if (!Number.isInteger(productId)) {
+    const productId = req.params.id;
+
+    if (!productId || typeof productId !== 'string' || productId.trim() === '') {
       return res.status(400).json({
         status: false,
         message: 'Invalid product ID'
       });
     }
 
+    const trimmedProductId = productId.trim();
+
     const allowedFields = ['name', 'description', 'avatar', 'feature', 'category_id'];
+    
     const updates: Record<string, any> = {};
 
     allowedFields.forEach((field) => {
@@ -1763,7 +2022,7 @@ router.post('/admin/products/:id', admin_checking, async function(req, res, next
       });
     }
 
-    const productDetail = await rubik_info.findOne({ _id: productId }).lean();
+    const productDetail = await rubik_info.findOne({ _id: trimmedProductId }).lean();
 
     if (!productDetail) {
       return res.status(404).json({
@@ -1782,7 +2041,7 @@ router.post('/admin/products/:id', admin_checking, async function(req, res, next
 
       const nameRegex = new RegExp(`^${escapeRegExp(updates.name)}$`, 'i');
       const duplicate = await rubik_info.findOne({
-        _id: { $ne: productId },
+        _id: { $ne: trimmedProductId },
         name: nameRegex
       }).lean();
 
@@ -1794,22 +2053,35 @@ router.post('/admin/products/:id', admin_checking, async function(req, res, next
       }
     }
 
+    // Handle category update when provided
     if (typeof updates.category_id !== 'undefined') {
       const parsedCategoryId = Number(updates.category_id);
+
+      // Validate category_id is an integer
       if (!Number.isInteger(parsedCategoryId)) {
         return res.status(400).json({
           status: false,
           message: 'category_id must be an integer'
         });
       }
+
+      // Ensure the category exists before assigning
+      const categoryDetail = await category.findOne({ _id: parsedCategoryId }).lean();
+      if (!categoryDetail) {
+        return res.status(400).json({
+          status: false,
+          message: 'Category not found'
+        });
+      }
+
       updates.category_id = parsedCategoryId;
     }
 
-    await rubik_info.updateOne({ _id: productId }, { $set: updates });
+    await rubik_info.updateOne({ _id: trimmedProductId }, { $set: updates });
 
-    const updatedProduct = await rubik_info.findOne({ _id: productId }).lean();
+    const updatedProduct = await rubik_info.findOne({ _id: trimmedProductId }).lean();
 
-    logger.info(`Admin updated product: ${updatedProduct?.name} (${productId}) by ${req.username}`);
+    logger.info(`Admin updated product: ${updatedProduct?.name} (${trimmedProductId}) by ${req.username}`);
 
     return res.status(200).json({
       status: true,
@@ -1831,16 +2103,18 @@ router.post('/admin/products/:id', admin_checking, async function(req, res, next
 // 管理员 - 删除产品（使用GET）
 router.get('/admin/products/:id/delete', admin_checking, async function(req, res, next) {
   try {
-    const productId = Number(req.params.id);
+    const productId = req.params.id;
 
-    if (!Number.isInteger(productId)) {
+    if (!productId || typeof productId !== 'string' || productId.trim() === '') {
       return res.status(400).json({
         status: false,
         message: 'Invalid product ID'
-      });
+      });      
     }
 
-    const productDetail = await rubik_info.findOne({ _id: productId }).lean();
+    const trimmedProductId = productId.trim();
+
+    const productDetail = await rubik_info.findOne({ _id: trimmedProductId }).lean();
 
     if (!productDetail) {
       return res.status(404).json({
@@ -1849,9 +2123,9 @@ router.get('/admin/products/:id/delete', admin_checking, async function(req, res
       });
     }
 
-    await rubik_info.deleteOne({ _id: productId });
+    await rubik_info.deleteOne({ _id: trimmedProductId });
 
-    logger.info(`Admin deleted product: ${productDetail.name} (${productId}) by ${req.username}`);
+    logger.info(`Admin deleted product: ${productDetail.name} (${trimmedProductId}) by ${req.username}`);
 
     return res.status(200).json({
       status: true,
@@ -2226,20 +2500,24 @@ router.get('/user_detail/:username',user_only_checking,function(req,res,next)
  try
  {  
     var user_name=req.params.username;
+
     if(user_name.trim()!="" && user_name!=null)
       {
         user.findOne({username:user_name}).exec((err,user)=>{
           if(err)
           {
             console.log("error:"+err);
+            
             throw err;
           }
          if(!user)
         {   logger.error('Get User detail '+user_name+' failed:Cannot find user.');
+            
             res.status(404).send({message:'Không tìm thấy user này'});
         }
         else
         {   logger.info('Get User detail '+user_name+' successful');
+          
             res.status(200).send({message:'OK'});
         }
         });
@@ -2262,6 +2540,7 @@ router.get('/about',user_only_checking,function(req,res,next)
   catch(err)
   {
     console.log('Error loading About page:'+err);
+    
     logger.error('Error loading About page:'+err);
   }
 });
@@ -2272,13 +2551,14 @@ var downloadImageFromUrl=async(url:string,outputDir:string)=>
   try
   { 
   var response = await axios.get(url,{responseType: 'text'});
-  const html = response.data;
+  const html = response.data;  
   var $=cheerio.load(html);
   console.log($.html());
   var imageUrl:string[]=[];
   $('img').each(async(index,ele)=>
   {
       const src=$(ele).attr('src');
+
       if(src)
       {
         imageUrl.push(src);
@@ -2307,9 +2587,31 @@ router.get('/get-rubik',user_only_checking,async function(req,res,next)
  catch(err)
  { 
   logger.error('Get rubik failed:'+err.message);
+
   res.status(401).send({status:false,list:[],message:err.message});
    console.log('Get ruibk list error:'+err.message);
  }
+});
+
+router.get('/categories', user_only_checking, async function(req, res, next) {
+  try {
+    const categories = await category.find({}).sort({ _id: 1 }).lean();
+    logger.info('Client fetched categories list successfully');
+     console.log("get data successfully:"+categories.length);
+
+    return res.status(200).send({
+      status: true,
+      data: categories,
+      message: 'Lay danh sach category thanh cong'
+    });
+  } catch (err) {
+    logger.error('Get categories failed: ' + err.message);
+    return res.status(500).send({
+      status: false,
+      data: [],
+      message: err.message
+    });
+  }
 });
 
 router.get('/product-details/:id',user_only_checking,async function(req,res,next){

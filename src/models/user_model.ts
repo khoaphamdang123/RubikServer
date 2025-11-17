@@ -1,6 +1,7 @@
 import { createDecipheriv } from "crypto";
 import mongoose, { mongo } from "mongoose";
 import { SettingsUpdateInstance } from "twilio/lib/rest/supersim/v1/settingsUpdate";
+import { Deserializer } from "v8";
 var autoIncrement=require('mongoose-auto-increment');
 const {Schema}=mongoose;
 const userSchema=new Schema({
@@ -82,7 +83,7 @@ const userRoomDetailSchema=new Schema({
 
 
 const rubikInfoSchema = new Schema({
-    _id:{type:Number,required:false},
+    _id:{type:String,required:false},
     name:{type:String,required:true},
     description:{type:String,required:true},
     avatar:{type:String,required:true},
@@ -150,8 +151,6 @@ roomSchema.plugin(autoIncrement.plugin,'room');
 userRoomDetailSchema.plugin(autoIncrement.plugin,'userRoomDetail');
 
 singleBoardDetailSchema.plugin(autoIncrement.plugin,'singleBoardDetail');
-
-rubikInfoSchema.plugin(autoIncrement.plugin,'rubikInfo');
 
 deviceSchema.plugin(autoIncrement.plugin,'device');
 
