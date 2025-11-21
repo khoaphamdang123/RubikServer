@@ -1,0 +1,152 @@
+[2025-11-21T16:04:02.101] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-21T16:10:02.317] [INFO] default - Admin login successful: helloman147
+[2025-11-21T16:10:02.438] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-21T16:10:04.834] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:10:06.904] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:10:08.292] [INFO] default - Admin fetched category detail: Core Cubes (5) by helloman147
+[2025-11-21T16:10:13.430] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:10:22.640] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:10:23.067] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:10:23.477] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:10:23.759] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:10:23.980] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:11:44.168] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:11:44.839] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:11:46.140] [INFO] default - Admin fetched product detail: Rubik's Professor 5x5 (9) by helloman147
+[2025-11-21T16:11:46.141] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-21T16:11:52.376] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:21:23.167] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-21T16:23:26.918] [ERROR] default - Admin account attempted to access client page: helloman147
+[2025-11-21T16:23:27.105] [ERROR] default - Session expired or account logged in from another place.
+[2025-11-21T16:23:27.109] [ERROR] default - Session expired or account logged in from another place.
+[2025-11-21T16:24:03.128] [INFO] default - Admin login successful: helloman147
+[2025-11-21T16:24:03.206] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-21T16:24:04.786] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-21T16:24:04.790] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:24:24.387] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-21T16:24:24.390] [INFO] default - Admin fetched product detail: Rubik's Coach Cube (1) by helloman147
+[2025-11-21T16:24:33.178] [INFO] default - Admin updated product: Rubik's Coach Cube (1) by helloman147
+[2025-11-21T16:24:36.768] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-21T16:24:36.772] [INFO] default - Admin fetched product detail: Rubik's Coach Cube (1) by helloman147
+[2025-11-21T16:24:38.661] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-21T16:24:38.666] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:24:42.171] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:24:42.173] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-21T16:24:42.898] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-21T16:24:42.899] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:24:43.089] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-21T16:24:43.090] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:24:45.975] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-21T16:24:45.979] [INFO] default - Admin fetched product detail: Rubik's Coach Cube (1) by helloman147
+[2025-11-21T16:24:47.681] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-21T16:24:47.685] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:25:06.265] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:25:06.830] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-21T16:25:06.835] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:25:09.991] [INFO] default - Admin fetched product detail: Rubik's Coach Cube (1) by helloman147
+[2025-11-21T16:25:09.992] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-21T16:25:53.241] [INFO] default - Admin fetched product detail: Rubik's Coach Cube (1) by helloman147
+[2025-11-21T16:25:53.244] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-21T16:25:53.664] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-21T16:25:53.668] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:25:56.166] [INFO] default - Admin fetched product detail: Rubik's Coach Cube (1) by helloman147
+[2025-11-21T16:25:56.168] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-21T16:26:00.416] [INFO] default - Admin updated product: Rubik's Coach Cube (1) by helloman147
+[2025-11-21T16:26:02.117] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-21T16:26:02.122] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:26:06.513] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-21T16:26:06.517] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:26:10.322] [INFO] default - Admin fetched product detail: Rubik's Coach Cube (1) by helloman147
+[2025-11-21T16:26:10.326] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-21T16:26:14.470] [INFO] default - Admin updated product: Rubik's Coach Cube (1) by helloman147
+[2025-11-21T16:26:19.632] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-21T16:26:19.635] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:34:52.996] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-21T16:34:55.106] [INFO] default - Admin fetched product detail: Rubik's Coach Cube (1) by helloman147
+[2025-11-21T16:34:59.047] [INFO] default - Admin fetched product detail: Rubik's Coach Cube (1) by helloman147
+[2025-11-21T16:34:59.066] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-21T16:35:02.667] [INFO] default - Admin users list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:35:08.548] [INFO] default - Admin fetched user detail for edit: duynv123 (10) by helloman147
+[2025-11-21T16:35:18.565] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:36:46.835] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-21T16:36:46.837] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:36:47.360] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:36:50.339] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T16:58:54.737] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-21T17:00:16.286] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-21T17:04:37.556] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-21T17:05:03.528] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-21T17:05:59.552] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-21T17:12:40.684] [ERROR] default - Admin account attempted to access client page: helloman147
+[2025-11-21T17:28:44.682] [ERROR] default - Session expired or account logged in from another place.
+[2025-11-21T17:28:44.688] [ERROR] default - Session expired or account logged in from another place.
+[2025-11-21T17:28:45.352] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-21T17:29:01.026] [INFO] default - Admin login successful: helloman147
+[2025-11-21T17:29:01.112] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-21T17:29:02.311] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:29:05.433] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-21T17:29:05.438] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:29:06.743] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:29:06.803] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:29:23.298] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:29:23.906] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:29:32.791] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:29:33.554] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:29:33.690] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:30:53.139] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:30:53.211] [ERROR] default - Admin account attempted to access client page: helloman147
+[2025-11-21T17:31:25.712] [ERROR] default - Session expired or account logged in from another place.
+[2025-11-21T17:37:39.615] [INFO] default - Admin login successful: helloman147
+[2025-11-21T17:37:39.685] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-21T17:37:41.068] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:38:02.565] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:38:30.954] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:38:36.626] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:40:28.004] [ERROR] default - Admin account attempted to access client page: helloman147
+[2025-11-21T17:42:52.700] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-21T17:46:47.564] [ERROR] default - Session expired or account logged in from another place.
+[2025-11-21T17:47:02.928] [INFO] default - Admin login successful: helloman147
+[2025-11-21T17:47:03.005] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-21T17:47:04.143] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:47:11.187] [INFO] default - Admin created rubik type: Rubik 3x3 (0) by helloman147
+[2025-11-21T17:47:11.229] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:47:16.270] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:47:16.854] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:47:16.993] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:47:17.154] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:47:57.625] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:47:58.103] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:47:58.257] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:47:58.400] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:47:58.542] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:49:13.259] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:49:15.688] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:49:32.152] [INFO] default - Admin categories list accessed by: helloman147, page: 1, limit: 1000
+[2025-11-21T17:49:32.154] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:49:34.012] [INFO] default - Admin products list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:49:35.300] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:52:00.096] [ERROR] default - Admin account attempted to access client page: helloman147
+[2025-11-21T17:52:00.121] [ERROR] default - Session expired or account logged in from another place.
+[2025-11-21T17:58:16.238] [INFO] default - Admin login successful: helloman147
+[2025-11-21T17:58:16.321] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-21T17:58:21.740] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:58:25.177] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-21T17:58:44.358] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:58:44.902] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:58:45.077] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:58:45.202] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:58:45.390] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T17:58:50.168] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T18:01:44.924] [ERROR] default - Admin account attempted to access client page: helloman147
+[2025-11-21T18:01:44.944] [ERROR] default - Session expired or account logged in from another place.
+[2025-11-21T18:05:32.973] [INFO] default - Admin login successful: helloman147
+[2025-11-21T18:05:33.033] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-21T18:05:33.892] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T18:07:31.996] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T18:07:32.134] [ERROR] default - Admin account attempted to access client page: helloman147
+[2025-11-21T18:07:35.930] [ERROR] default - Session expired or account logged in from another place.
+[2025-11-21T18:07:35.963] [ERROR] default - Your account has been login from another place.
+[2025-11-21T18:15:03.762] [INFO] default - Admin login successful: helloman147
+[2025-11-21T18:15:03.840] [INFO] default - Admin dashboard accessed by: helloman147
+[2025-11-21T18:15:04.933] [INFO] default - Admin rubik types list accessed by: helloman147, page: 1, limit: 10
+[2025-11-21T18:15:09.910] [ERROR] default - MQTT INIT FAILED:Connection error: 

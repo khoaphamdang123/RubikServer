@@ -1,5 +1,5 @@
 import * as express from 'express'
-import {user,room_user,user_room_detail,rubik_info,image_detail,social_account,session,role,rubikProblem,rubikProblemDetail,temp_device,device,category} from '../models/user_model';
+import {user,room_user,user_room_detail,rubik_info,image_detail,social_account,session,role,rubikProblem,rubikProblemDetail,temp_device,device,category,rubikType} from '../models/user_model';
 import checkingDuplicateUserNameOrEmail from '../config/checking';
 import {token_checking,email_token_checking,admin_checking,user_only_checking} from '../config/checkingToken';
 import {username,password,loginUrl,registerServerUrl} from './gmail_account';
@@ -1814,6 +1814,292 @@ router.get('/admin/categories/:id/delete', admin_checking, async function(req, r
   }
 });
 
+// 管理员 - 魔方类型列表
+router.get('/admin/rubik-types', admin_checking, async function(req, res, next) {
+  try {
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 10;
+    const search = typeof req.query.search === 'string' ? req.query.search.trim() : '';
+    const skip = (page - 1) * limit;
+
+    const query: Record<string, any> = {};
+    if (search) {
+      query.type_name = { $regex: escapeRegExp(search), $options: 'i' };
+    }
+
+    const totalRubikTypes = await rubikType.countDocuments(query);
+    const rubikTypes = await rubikType.find(query)
+      .sort({ _id: -1 })
+      .skip(skip)
+      .limit(limit)
+      .lean();
+
+    logger.info(`Admin rubik types list accessed by: ${req.username}, page: ${page}, limit: ${limit}`);
+
+    return res.status(200).json({
+      status: true,
+      message: 'Rubik types retrieved successfully',
+      data: {
+        rubikTypes,
+        pagination: {
+          currentPage: page,
+          totalPages: Math.ceil(totalRubikTypes / limit),
+          totalRubikTypes,
+          limit,
+          hasNextPage: page * limit < totalRubikTypes,
+          hasPrevPage: page > 1
+        }
+      }
+    });
+  } catch (err) {
+    logger.error('Admin rubik types list error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
+// 管理员 - 创建魔方类型
+router.post('/admin/rubik-types', admin_checking, async function(req, res, next) {
+  try {
+    const { type_name, variation } = req.body || {};
+
+    const trimmedName = typeof type_name === 'string' ? type_name.trim() : '';
+    const hasVariation = typeof variation !== 'undefined' && variation !== null && variation !== '';
+    const parsedVariation = hasVariation ? Number(variation) : NaN;
+
+    if (!trimmedName || !hasVariation || Number.isNaN(parsedVariation)) {
+      return res.status(400).json({
+        status: false,
+        message: 'type_name and numeric variation are required'
+      });
+    }
+
+    const duplicate = await rubikType.findOne({
+      type_name: new RegExp(`^${escapeRegExp(trimmedName)}$`, 'i')
+    }).lean();
+
+    if (duplicate) {
+      return res.status(409).json({
+        status: false,
+        message: 'Rubik type name already exists'
+      });
+    }
+
+    const nowIso = new Date().toISOString();
+    const newRubikType = new rubikType({
+      type_name: trimmedName,
+      variation: parsedVariation,
+      created_date: nowIso,
+      updated_date: nowIso
+    });
+
+    await newRubikType.save();
+
+    logger.info(`Admin created rubik type: ${trimmedName} (${newRubikType._id}) by ${req.username}`);
+
+    return res.status(201).json({
+      status: true,
+      message: 'Rubik type created successfully',
+      data: {
+        rubikType: newRubikType
+      }
+    });
+  } catch (err) {
+    logger.error('Admin create rubik type error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
+// 管理员 - 获取魔方类型详情
+router.get('/admin/rubik-types/:id', admin_checking, async function(req, res, next) {
+  try {
+    const rubikTypeId = Number(req.params.id);
+
+    if (!Number.isInteger(rubikTypeId)) {
+      return res.status(400).json({
+        status: false,
+        message: 'Invalid rubik type ID'
+      });
+    }
+
+    const rubikTypeDetail = await rubikType.findOne({ _id: rubikTypeId }).lean();
+
+    if (!rubikTypeDetail) {
+      return res.status(404).json({
+        status: false,
+        message: 'Rubik type not found'
+      });
+    }
+
+    logger.info(`Admin fetched rubik type detail: ${rubikTypeDetail.type_name} (${rubikTypeId}) by ${req.username}`);
+
+    return res.status(200).json({
+      status: true,
+      message: 'Rubik type detail retrieved successfully',
+      data: {
+        rubikType: rubikTypeDetail
+      }
+    });
+  } catch (err) {
+    logger.error('Admin rubik type detail error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
+// 管理员 - 更新魔方类型（使用POST）
+router.post('/admin/rubik-types/:id', admin_checking, async function(req, res, next) {
+  try {
+    const rubikTypeId = Number(req.params.id);
+
+    if (!Number.isInteger(rubikTypeId)) {
+      return res.status(400).json({
+        status: false,
+        message: 'Invalid rubik type ID'
+      });
+    }
+
+    const rubikTypeDetail = await rubikType.findOne({ _id: rubikTypeId }).lean();
+
+    if (!rubikTypeDetail) {
+      return res.status(404).json({
+        status: false,
+        message: 'Rubik type not found'
+      });
+    }
+
+    const { type_name, variation } = req.body || {};
+    const updates: Record<string, any> = {};
+
+    if (typeof type_name !== 'undefined') {
+      const trimmedName = typeof type_name === 'string' ? type_name.trim() : '';
+
+      if (!trimmedName) {
+        return res.status(400).json({
+          status: false,
+          message: 'type_name is required when provided'
+        });
+      }
+
+      const duplicate = await rubikType.findOne({
+        _id: { $ne: rubikTypeId },
+        type_name: new RegExp(`^${escapeRegExp(trimmedName)}$`, 'i')
+      }).lean();
+
+      if (duplicate) {
+        return res.status(409).json({
+          status: false,
+          message: 'Rubik type name already exists'
+        });
+      }
+
+      updates.type_name = trimmedName;
+    }
+
+    if (typeof variation !== 'undefined') {
+      if (variation === null || variation === '') {
+        return res.status(400).json({
+          status: false,
+          message: 'variation must be provided when specified'
+        });
+      }
+
+      const parsedVariation = Number(variation);
+
+      if (Number.isNaN(parsedVariation)) {
+        return res.status(400).json({
+          status: false,
+          message: 'variation must be a number'
+        });
+      }
+
+      updates.variation = parsedVariation;
+    }
+
+    if (Object.keys(updates).length === 0) {
+      return res.status(400).json({
+        status: false,
+        message: 'No fields provided for update'
+      });
+    }
+
+    updates.updated_date = new Date().toISOString();
+
+    await rubikType.updateOne(
+      { _id: rubikTypeId },
+      { $set: updates }
+    );
+
+    const updatedRubikType = await rubikType.findOne({ _id: rubikTypeId }).lean();
+
+    logger.info(`Admin updated rubik type: ${updatedRubikType?.type_name} (${rubikTypeId}) by ${req.username}`);
+
+    return res.status(200).json({
+      status: true,
+      message: 'Rubik type updated successfully',
+      data: {
+        rubikType: updatedRubikType
+      }
+    });
+  } catch (err) {
+    logger.error('Admin update rubik type error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
+// 管理员 - 删除魔方类型（使用GET）
+router.get('/admin/rubik-types/:id/delete', admin_checking, async function(req, res, next) {
+  try {
+    const rubikTypeId = Number(req.params.id);
+
+    if (!Number.isInteger(rubikTypeId)) {
+      return res.status(400).json({
+        status: false,
+        message: 'Invalid rubik type ID'
+      });
+    }
+
+    const rubikTypeDetail = await rubikType.findOne({ _id: rubikTypeId }).lean();
+
+    if (!rubikTypeDetail) {
+      return res.status(404).json({
+        status: false,
+        message: 'Rubik type not found'
+      });
+    }
+
+    await rubikType.deleteOne({ _id: rubikTypeId });
+
+    logger.info(`Admin deleted rubik type: ${rubikTypeDetail.type_name} (${rubikTypeId}) by ${req.username}`);
+
+    return res.status(200).json({
+      status: true,
+      message: 'Rubik type deleted successfully'
+    });
+  } catch (err) {
+    logger.error('Admin delete rubik type error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
 // 管理员 - 产品列表
 router.get('/admin/products', admin_checking, async function(req, res, next) {
   try {
@@ -2600,7 +2886,7 @@ router.get('/categories', user_only_checking, async function(req, res, next) {
      console.log("get data successfully:"+categories.length);
 
     return res.status(200).send({
-      status: true,
+      tatus: true,
       data: categories,
       message: 'Lay danh sach category thanh cong'
     });

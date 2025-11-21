@@ -728,3 +728,5 @@
 [2025-11-17T19:41:13.548] [INFO] default - Client fetched categories list successfully
 [2025-11-17T19:41:18.101] [INFO] default - get Rubik successful
 [2025-11-17T19:41:18.118] [INFO] default - Client fetched categories list successfully
+[2025-11-17T20:00:23.951] [ERROR] default - MQTT INIT FAILED:Connection error: 
+[2025-11-17T20:54:47.163] [ERROR] default - MQTT INIT FAILED:Connection error: 

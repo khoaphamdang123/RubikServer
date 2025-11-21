@@ -1,5 +1,6 @@
 import { createDecipheriv } from "crypto";
 import mongoose, { mongo } from "mongoose";
+import { PricingV1MessagingMessagingCountryInstanceInboundSmsPrices } from "twilio/lib/rest/pricing/v1/messaging/country";
 import { SettingsUpdateInstance } from "twilio/lib/rest/supersim/v1/settingsUpdate";
 import { Deserializer } from "v8";
 var autoIncrement=require('mongoose-auto-increment');
@@ -109,6 +110,31 @@ const socialNetworkAccountSchema=new Schema({
     social_type:{type:String,required:true}
 });
 
+const rubikTypeSchema = new Schema({
+ _id:{type:Number,required:true},
+ type_name:{type:String,required:true},
+ variation:{type:Number,required:true},
+ created_date:{type:String,required:true},
+ updated_date:{type:String,required:true}
+});
+
+rubikTypeSchema.plugin(autoIncrement.plugin,'rubikType');
+
+const rubikType=mongoose.model('rubikType',rubikTypeSchema,'RubikType');
+
+const feedbackSchema = new Schema({
+ _id:{type:Number,required:true},
+ user_id:{type:Number,required:true},
+ feedback_content:{type:String,required:true},
+ feedback_response:{type:String,required:false},
+ created_date:{type:String,required:true},
+ updated_date:{type:String,required:true}
+});
+
+feedbackSchema.plugin(autoIncrement.plugin,'feedback');
+
+const feedback=mongoose.model('feedback',feedbackSchema,'Feedback');
+
 const deviceSchema = new Schema(
 {
  _id:{type:Number,required:false},
@@ -181,7 +207,7 @@ const image_detail=mongoose.model('detailImage',detailImageSchema,'DetailImage')
 const role=mongoose.model('role',roleSchema,'Role');
 
 
-export {user,question_level,room_user,user_room_detail,single_board_detail,rubik_info,image_detail,session,temp_device,device,rubikProblem,social_account,rubikProblemDetail,category,role}; 
+export {user,question_level,room_user,user_room_detail,single_board_detail,rubik_info,image_detail,session,temp_device,device,rubikProblem,social_account,rubikProblemDetail,category,rubikType,feedback,role}; 
 
 
 
