@@ -151,13 +151,15 @@ var user_only_checking=async(req,res,next)=>{
      }
      
      var user_info=await user.findOne({username:decoded.username});
+     
      if(!user_info)
      {
-       return res.status(401).send({message:"User not found"});
+       return res.status(401).send({message:"User not found"});              
      }
      
      // 查找用户的角色信息
      var user_role=await role.findOne({_id:user_info.role_id});
+
      if(!user_role)
      {
        return res.status(403).send({message:"Role not found"});

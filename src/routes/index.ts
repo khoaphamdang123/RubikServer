@@ -1,5 +1,5 @@
 import * as express from 'express'
-import {user,room_user,user_room_detail,rubik_info,image_detail,social_account,session,role,rubikProblem,rubikProblemDetail,temp_device,device,category,rubikType} from '../models/user_model';
+import {user,room_user,user_room_detail,rubik_info,image_detail,social_account,session,role,rubikProblem,rubikProblemDetail,temp_device,device,category,rubikType,feedback} from '../models/user_model';
 import checkingDuplicateUserNameOrEmail from '../config/checking';
 import {token_checking,email_token_checking,admin_checking,user_only_checking} from '../config/checkingToken';
 import {username,password,loginUrl,registerServerUrl} from './gmail_account';
@@ -1828,13 +1828,19 @@ router.get('/admin/rubik-types', admin_checking, async function(req, res, next) 
     }
 
     const totalRubikTypes = await rubikType.countDocuments(query);
+  
     const rubikTypes = await rubikType.find(query)
       .sort({ _id: -1 })
       .skip(skip)
       .limit(limit)
       .lean();
 
+    
+
     logger.info(`Admin rubik types list accessed by: ${req.username}, page: ${page}, limit: ${limit}`);
+
+    console.log("Rubik type retrieved successfully:"+JSON.stringify(rubikTypes));
+
 
     return res.status(200).json({
       status: true,
@@ -1865,10 +1871,9 @@ router.get('/admin/rubik-types', admin_checking, async function(req, res, next) 
 router.post('/admin/rubik-types', admin_checking, async function(req, res, next) {
   try {
     const { type_name, variation } = req.body || {};
-
     const trimmedName = typeof type_name === 'string' ? type_name.trim() : '';
     const hasVariation = typeof variation !== 'undefined' && variation !== null && variation !== '';
-    const parsedVariation = hasVariation ? Number(variation) : NaN;
+    const parsedVariation = hasVariation ? Number(variation) : NaN;    
 
     if (!trimmedName || !hasVariation || Number.isNaN(parsedVariation)) {
       return res.status(400).json({
@@ -1881,11 +1886,12 @@ router.post('/admin/rubik-types', admin_checking, async function(req, res, next)
       type_name: new RegExp(`^${escapeRegExp(trimmedName)}$`, 'i')
     }).lean();
 
-    if (duplicate) {
+    if (duplicate) 
+    {
       return res.status(409).json({
         status: false,
         message: 'Rubik type name already exists'
-      });
+      });      
     }
 
     const nowIso = new Date().toISOString();
@@ -1898,7 +1904,7 @@ router.post('/admin/rubik-types', admin_checking, async function(req, res, next)
 
     await newRubikType.save();
 
-    logger.info(`Admin created rubik type: ${trimmedName} (${newRubikType._id}) by ${req.username}`);
+    logger.info(`Admin created rubik type: ${trimmedName} (${newRubikType._id}) by ${req.username}`);    
 
     return res.status(201).json({
       status: true,
@@ -1909,6 +1915,7 @@ router.post('/admin/rubik-types', admin_checking, async function(req, res, next)
     });
   } catch (err) {
     logger.error('Admin create rubik type error: ' + err.message);
+
     return res.status(500).json({
       status: false,
       message: 'Internal server error',
@@ -1920,17 +1927,18 @@ router.post('/admin/rubik-types', admin_checking, async function(req, res, next)
 // 管理员 - 获取魔方类型详情
 router.get('/admin/rubik-types/:id', admin_checking, async function(req, res, next) {
   try {
-    const rubikTypeId = Number(req.params.id);
 
+    const rubikTypeId = Number(req.params.id);
+  
     if (!Number.isInteger(rubikTypeId)) {
       return res.status(400).json({
         status: false,
         message: 'Invalid rubik type ID'
-      });
+      });      
     }
 
     const rubikTypeDetail = await rubikType.findOne({ _id: rubikTypeId }).lean();
-
+    
     if (!rubikTypeDetail) {
       return res.status(404).json({
         status: false,
@@ -2085,7 +2093,7 @@ router.get('/admin/rubik-types/:id/delete', admin_checking, async function(req, 
     await rubikType.deleteOne({ _id: rubikTypeId });
 
     logger.info(`Admin deleted rubik type: ${rubikTypeDetail.type_name} (${rubikTypeId}) by ${req.username}`);
-
+  
     return res.status(200).json({
       status: true,
       message: 'Rubik type deleted successfully'
@@ -2419,6 +2427,321 @@ router.get('/admin/products/:id/delete', admin_checking, async function(req, res
     });
   } catch (err) {
     logger.error('Admin delete product error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
+
+// 用户 - 创建反馈
+router.post('/feedback', user_only_checking, async function(req, res, next) {
+  try {
+    const { feedback_content, feedback_response } = req.body || {};
+    const trimmedContent = typeof feedback_content === 'string' ? feedback_content.trim() : '';
+
+    if (!trimmedContent) {
+      return res.status(400).json({
+        status: false,
+        message: 'feedback_content is required'
+      });
+    }
+
+    let resolvedUserId: number | null = null;
+
+    if (typeof req.userId !== 'undefined' && req.userId !== null) {
+      const parsedUserId = Number(req.userId);
+      if (!Number.isNaN(parsedUserId) && Number.isInteger(parsedUserId)) {
+        resolvedUserId = parsedUserId;
+      }
+    }
+
+    if (resolvedUserId === null && req.username) {
+      const userInfo = await user.findOne({ username: req.username }).lean();
+      if (userInfo && typeof userInfo._id !== 'undefined') {
+        const parsedUserId = Number(userInfo._id);
+        if (!Number.isNaN(parsedUserId) && Number.isInteger(parsedUserId)) {
+          resolvedUserId = parsedUserId;
+        }
+      }
+    }
+
+    if (resolvedUserId === null) {
+      return res.status(401).json({
+        status: false,
+        message: 'Unable to resolve user id from session'
+      });
+    }
+
+    const now = DateTime.now().toISO();
+    const payload: Record<string, any> = {
+      user_id: resolvedUserId,
+      feedback_content: trimmedContent,
+      feedback_response: '',
+      created_date: now,
+      updated_date: now
+    };
+
+    const trimmedResponse = typeof feedback_response === 'string' ? feedback_response.trim() : '';
+
+    if (trimmedResponse) {
+      payload.feedback_response = trimmedResponse;
+    }
+
+    const feedbackItem = new feedback(payload);
+    await feedbackItem.save();
+
+    logger.info(`User ${req.username || resolvedUserId} created feedback: ${feedbackItem._id}`);
+
+    return res.status(201).json({
+      status: true,
+      message: 'Feedback submitted successfully',
+      data: {
+        feedback: feedbackItem
+      }
+    });
+  } catch (err) {
+    logger.error('Create feedback error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
+// 管理员 - 获取反馈列表
+router.get('/admin/feedback', admin_checking, async function(req, res, next) {
+  try {
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 10;
+    const search = (req.query.search as string) || '';
+    const skip = (page - 1) * limit;
+
+    const query: Record<string, any> = {};
+
+    if (search) {
+      const escaped = escapeRegExp(search.trim());
+      query.$or = [
+        { feedback_content: { $regex: escaped, $options: 'i' } },
+        { feedback_response: { $regex: escaped, $options: 'i' } }
+      ];
+    }
+
+    const totalFeedback = await feedback.countDocuments(query);
+    const feedbackList = await feedback.find(query)
+      .sort({ _id: -1 })
+      .skip(skip)
+      .limit(limit)
+      .lean();
+
+    const userIds = Array.from(
+      new Set(
+        feedbackList
+          .map((item: any) => Number(item.user_id))
+          .filter((id: number) => Number.isInteger(id))
+      )
+    );
+
+    let userMap = new Map<number, any>();
+
+    if (userIds.length > 0) {
+      const usersInfo = await user
+        .find({ _id: { $in: userIds } }, { _id: 1, username: 1, display_name: 1, email: 1 })
+        .lean();
+
+      userMap = new Map(usersInfo.map((info: any) => [info._id, info]));
+    }
+
+    const feedbackWithUser = feedbackList.map((item: any) => ({
+      ...item,
+      user: userMap.get(Number(item.user_id)) || null
+    }));
+
+    logger.info(`Admin ${req.username} fetched feedback list - page ${page}, limit ${limit}`);
+
+    return res.status(200).json({
+      status: true,
+      message: 'Feedback list retrieved successfully',
+      data: {
+        feedback: feedbackWithUser,
+        pagination: {
+          currentPage: page,
+          totalPages: Math.ceil(totalFeedback / limit) || 1,
+          totalFeedback,
+          limit,
+          hasNextPage: page * limit < totalFeedback,
+          hasPrevPage: page > 1
+        }
+      }
+    });
+  } catch (err) {
+    logger.error('Admin feedback list error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
+// 管理员 - 获取单条反馈详情
+router.get('/admin/feedback/:id', admin_checking, async function(req, res, next) {
+  try {
+    const feedbackId = Number(req.params.id);
+
+    if (!Number.isInteger(feedbackId)) {
+      return res.status(400).json({
+        status: false,
+        message: 'Invalid feedback ID'
+      });
+    }
+
+    const feedbackDetail = await feedback.findOne({ _id: feedbackId }).lean();
+
+    if (!feedbackDetail) {
+      return res.status(404).json({
+        status: false,
+        message: 'Feedback not found'
+      });
+    }
+
+    let feedbackOwner: any = null;
+
+    if (Number.isInteger(Number(feedbackDetail.user_id))) {
+      feedbackOwner = await user
+        .findOne(
+          { _id: Number(feedbackDetail.user_id) },
+          { _id: 1, username: 1, display_name: 1, email: 1 }
+        )
+        .lean();
+    }
+
+    logger.info(`Admin ${req.username} fetched feedback detail: ${feedbackId}`);
+
+    return res.status(200).json({
+      status: true,
+      message: 'Feedback detail retrieved successfully',
+      data: {
+        feedback: feedbackDetail,
+        user: feedbackOwner
+      }
+    });
+  } catch (err) {
+    logger.error('Admin feedback detail error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
+// 管理员 - 更新反馈（使用POST）
+router.post('/admin/feedback/:id', admin_checking, async function(req, res, next) {
+  try {
+    const feedbackId = Number(req.params.id);
+
+    if (!Number.isInteger(feedbackId)) {
+      return res.status(400).json({
+        status: false,
+        message: 'Invalid feedback ID'
+      });
+    }
+
+    const allowedFields = ['feedback_content', 'feedback_response'];
+    const updates: Record<string, any> = {};
+
+    allowedFields.forEach((field) => {
+      if (req.body && typeof req.body[field] !== 'undefined') {
+        if (typeof req.body[field] === 'string') {
+          updates[field] = req.body[field].trim();
+        } else {
+          updates[field] = req.body[field];
+        }
+      }
+    });
+
+    if (Object.keys(updates).length === 0) {
+      return res.status(400).json({
+        status: false,
+        message: 'No valid fields provided for update'
+      });
+    }
+
+    if (typeof updates.feedback_content !== 'undefined' && !updates.feedback_content) {
+      return res.status(400).json({
+        status: false,
+        message: 'feedback_content cannot be empty'
+      });
+    }
+
+    const feedbackDetail = await feedback.findOne({ _id: feedbackId }).lean();
+
+    if (!feedbackDetail) {
+      return res.status(404).json({
+        status: false,
+        message: 'Feedback not found'
+      });
+    }
+
+    updates.updated_date = DateTime.now().toISO();
+
+    await feedback.updateOne({ _id: feedbackId }, { $set: updates });
+    const updatedFeedback = await feedback.findOne({ _id: feedbackId }).lean();
+
+    logger.info(`Admin ${req.username} updated feedback: ${feedbackId}`);
+
+    return res.status(200).json({
+      status: true,
+      message: 'Feedback updated successfully',
+      data: {
+        feedback: updatedFeedback
+      }
+    });
+  } catch (err) {
+    logger.error('Admin update feedback error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
+// 管理员 - 删除反馈（使用GET）
+router.get('/admin/feedback/:id/delete', admin_checking, async function(req, res, next) {
+  try {
+    const feedbackId = Number(req.params.id);
+
+    if (!Number.isInteger(feedbackId)) {
+      return res.status(400).json({
+        status: false,
+        message: 'Invalid feedback ID'
+      });
+    }
+
+    const feedbackDetail = await feedback.findOne({ _id: feedbackId }).lean();
+
+    if (!feedbackDetail) {
+      return res.status(404).json({
+        status: false,
+        message: 'Feedback not found'
+      });
+    }
+
+    await feedback.deleteOne({ _id: feedbackId });
+
+    logger.info(`Admin ${req.username} deleted feedback: ${feedbackId}`);
+
+    return res.status(200).json({
+      status: true,
+      message: 'Feedback deleted successfully'
+    });
+  } catch (err) {
+    logger.error('Admin delete feedback error: ' + err.message);
     return res.status(500).json({
       status: false,
       message: 'Internal server error',
