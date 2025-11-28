@@ -1,5 +1,5 @@
 import * as express from 'express'
-import {user,room_user,user_room_detail,rubik_info,image_detail,social_account,session,role,rubikProblem,rubikProblemDetail,temp_device,device,category,rubikType,feedback} from '../models/user_model';
+import {user,room_user,user_room_detail,rubik_info,image_detail,social_account,session,role,rubikProblem,rubikProblemDetail,temp_device,device,category,rubikType,feedback,feedbackCategory} from '../models/user_model';
 import checkingDuplicateUserNameOrEmail from '../config/checking';
 import {token_checking,email_token_checking,admin_checking,user_only_checking} from '../config/checkingToken';
 import {username,password,loginUrl,registerServerUrl} from './gmail_account';
@@ -2108,6 +2108,269 @@ router.get('/admin/rubik-types/:id/delete', admin_checking, async function(req, 
   }
 });
 
+// 管理员 - 反馈分类列表
+router.get('/admin/feedback-categories', async function(req, res, next) {
+  try {
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 10;
+    const search = typeof req.query.search === 'string' ? req.query.search.trim() : '';
+    const skip = (page - 1) * limit;
+
+    const query: Record<string, any> = {};
+    if (search) {
+      query.category_name = { $regex: escapeRegExp(search), $options: 'i' };
+    }
+
+    const totalCategories = await feedbackCategory.countDocuments(query);
+    const categories = await feedbackCategory.find(query)
+      .sort({ _id: -1 })
+      .skip(skip)
+      .limit(limit)
+      .lean();
+
+    logger.info(`Admin feedback categories list accessed by: ${req.username}, page: ${page}, limit: ${limit}`);
+
+    return res.status(200).json({
+      status: true,
+      message: 'Feedback categories retrieved successfully',
+      data: {
+        categories,
+        pagination: {
+          currentPage: page,
+          totalPages: Math.ceil(totalCategories / limit) || 1,
+          totalCategories,
+          limit,
+          hasNextPage: page * limit < totalCategories,
+          hasPrevPage: page > 1
+        }
+      }
+    });
+  } catch (err) {
+    logger.error('Admin feedback categories list error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
+// 管理员 - 创建反馈分类
+router.post('/admin/feedback-categories', admin_checking, async function(req, res, next) {
+  try {
+    const { category_name } = req.body || {};
+    const trimmedName = typeof category_name === 'string' ? category_name.trim() : '';
+
+    if (!trimmedName) {
+      return res.status(400).json({
+        status: false,
+        message: 'category_name is required'
+      });
+    }
+
+    const duplicate = await feedbackCategory.findOne({
+      category_name: new RegExp(`^${escapeRegExp(trimmedName)}$`, 'i')
+    }).lean();
+
+    if (duplicate) {
+      return res.status(409).json({
+        status: false,
+        message: 'Feedback category name already exists'
+      });
+    }
+
+    const nowIso = new Date().toISOString();
+    const newFeedbackCategory = new feedbackCategory({
+      category_name: trimmedName,
+      created_date: nowIso,
+      updated_date: nowIso
+    });
+
+    await newFeedbackCategory.save();
+
+    logger.info(`Admin created feedback category: ${trimmedName} (${newFeedbackCategory._id}) by ${req.username}`);
+
+    return res.status(201).json({
+      status: true,
+      message: 'Feedback category created successfully',
+      data: {
+        category: newFeedbackCategory
+      }
+    });
+  } catch (err) {
+    logger.error('Admin create feedback category error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
+// 管理员 - 获取反馈分类详情
+router.get('/admin/feedback-categories/:id', admin_checking, async function(req, res, next) {
+  try {
+    const categoryId = Number(req.params.id);
+
+    if (!Number.isInteger(categoryId)) {
+      return res.status(400).json({
+        status: false,
+        message: 'Invalid feedback category ID'
+      });
+    }
+
+    const categoryDetail = await feedbackCategory.findOne({ _id: categoryId }).lean();
+
+    if (!categoryDetail) {
+      return res.status(404).json({
+        status: false,
+        message: 'Feedback category not found'
+      });
+    }
+
+    logger.info(`Admin fetched feedback category detail: ${categoryDetail.category_name} (${categoryId}) by ${req.username}`);
+
+    return res.status(200).json({
+      status: true,
+      message: 'Feedback category detail retrieved successfully',
+      data: {
+        category: categoryDetail
+      }
+    });
+  } catch (err) {
+    logger.error('Admin feedback category detail error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
+// 管理员 - 更新反馈分类（使用POST）
+router.post('/admin/feedback-categories/:id', admin_checking, async function(req, res, next) {
+  try {
+    const categoryId = Number(req.params.id);
+
+    if (!Number.isInteger(categoryId)) {
+      return res.status(400).json({
+        status: false,
+        message: 'Invalid feedback category ID'
+      });
+    }
+
+    const categoryDetail = await feedbackCategory.findOne({ _id: categoryId }).lean();
+
+    if (!categoryDetail) {
+      return res.status(404).json({
+        status: false,
+        message: 'Feedback category not found'
+      });
+    }
+
+    const { category_name } = req.body || {};
+    const trimmedName = typeof category_name === 'string' ? category_name.trim() : '';
+
+    if (!trimmedName) {
+      return res.status(400).json({
+        status: false,
+        message: 'category_name is required'
+      });
+    }
+
+    const duplicate = await feedbackCategory.findOne({
+      _id: { $ne: categoryId },
+      category_name: new RegExp(`^${escapeRegExp(trimmedName)}$`, 'i')
+    }).lean();
+
+    if (duplicate) {
+      return res.status(409).json({
+        status: false,
+        message: 'Feedback category name already exists'
+      });
+    }
+
+    const nowIso = new Date().toISOString();
+
+    await feedbackCategory.updateOne(
+      { _id: categoryId },
+      {
+        $set: {
+          category_name: trimmedName,
+          updated_date: nowIso
+        }
+      }
+    );
+
+    const updatedCategory = await feedbackCategory.findOne({ _id: categoryId }).lean();
+
+    logger.info(`Admin updated feedback category: ${updatedCategory?.category_name} (${categoryId}) by ${req.username}`);
+
+    return res.status(200).json({
+      status: true,
+      message: 'Feedback category updated successfully',
+      data: {
+        category: updatedCategory
+      }
+    });
+  } catch (err) {
+    logger.error('Admin update feedback category error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
+// 管理员 - 删除反馈分类（使用GET）
+router.get('/admin/feedback-categories/:id/delete', admin_checking, async function(req, res, next) {
+  try {
+    const categoryId = Number(req.params.id);
+
+    if (!Number.isInteger(categoryId)) {
+      return res.status(400).json({
+        status: false,
+        message: 'Invalid feedback category ID'
+      });
+    }
+
+    const categoryDetail = await feedbackCategory.findOne({ _id: categoryId }).lean();
+
+    if (!categoryDetail) {
+      return res.status(404).json({
+        status: false,
+        message: 'Feedback category not found'
+      });
+    }
+
+    const relatedFeedback = await feedback.countDocuments({ category_id: categoryId });
+
+    if (relatedFeedback > 0) {
+      return res.status(409).json({
+        status: false,
+        message: 'Cannot delete category with associated feedback'
+      });
+    }
+
+    await feedbackCategory.deleteOne({ _id: categoryId });
+
+    logger.info(`Admin deleted feedback category: ${categoryDetail.category_name} (${categoryId}) by ${req.username}`);
+
+    return res.status(200).json({
+      status: true,
+      message: 'Feedback category deleted successfully'
+    });
+  } catch (err) {
+    logger.error('Admin delete feedback category error: ' + err.message);
+    return res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message
+    });
+  }
+});
+
 // 管理员 - 产品列表
 router.get('/admin/products', admin_checking, async function(req, res, next) {
   try {
@@ -2439,13 +2702,46 @@ router.get('/admin/products/:id/delete', admin_checking, async function(req, res
 // 用户 - 创建反馈
 router.post('/feedback', user_only_checking, async function(req, res, next) {
   try {
-    const { feedback_content, feedback_response } = req.body || {};
+   console.log("req.body here is:"+JSON.stringify(req.body));
+    const { subject, feedback_content, feedback_response, status, category_id } = req.body || {};
+    const trimmedSubject = typeof subject === 'string' ? subject.trim() : '';
     const trimmedContent = typeof feedback_content === 'string' ? feedback_content.trim() : '';
+
+    if (!trimmedSubject) {
+      return res.status(400).json({
+        status: false,
+        message: 'subject is required'
+      });
+    }
 
     if (!trimmedContent) {
       return res.status(400).json({
         status: false,
         message: 'feedback_content is required'
+      });
+    }
+
+    const hasCategory = typeof category_id !== 'undefined' && category_id !== null && category_id !== '';
+    if (!hasCategory) {
+      return res.status(400).json({
+        status: false,
+        message: 'category_id is required'
+      });
+    }
+
+    const parsedCategoryId = Number(category_id);
+    if (!Number.isInteger(parsedCategoryId)) {
+      return res.status(400).json({
+        status: false,
+        message: 'category_id must be an integer'
+      });
+    }
+
+    const categoryDetail = await feedbackCategory.findOne({ _id: parsedCategoryId }).lean();
+    if (!categoryDetail) {
+      return res.status(400).json({
+        status: false,
+        message: 'Feedback category not found'
       });
     }
 
@@ -2476,10 +2772,14 @@ router.post('/feedback', user_only_checking, async function(req, res, next) {
     }
 
     const now = DateTime.now().toISO();
+    const resolvedStatus = typeof status === 'string' && status.trim() ? status.trim() : 'Pending';
     const payload: Record<string, any> = {
       user_id: resolvedUserId,
+      subject: trimmedSubject,
       feedback_content: trimmedContent,
       feedback_response: '',
+      category_id: parsedCategoryId,
+      status: resolvedStatus,
       created_date: now,
       updated_date: now
     };
@@ -2518,6 +2818,8 @@ router.get('/admin/feedback', admin_checking, async function(req, res, next) {
     const page = parseInt(req.query.page as string) || 1;
     const limit = parseInt(req.query.limit as string) || 10;
     const search = (req.query.search as string) || '';
+    const statusFilter = typeof req.query.status === 'string' ? req.query.status.trim() : '';
+    const categoryFilterRaw = typeof req.query.category_id === 'string' ? req.query.category_id.trim() : '';
     const skip = (page - 1) * limit;
 
     const query: Record<string, any> = {};
@@ -2525,9 +2827,25 @@ router.get('/admin/feedback', admin_checking, async function(req, res, next) {
     if (search) {
       const escaped = escapeRegExp(search.trim());
       query.$or = [
+        { subject: { $regex: escaped, $options: 'i' } },
         { feedback_content: { $regex: escaped, $options: 'i' } },
         { feedback_response: { $regex: escaped, $options: 'i' } }
       ];
+    }
+
+    if (statusFilter) {
+      query.status = statusFilter;
+    }
+
+    if (categoryFilterRaw) {
+      const parsedCategoryFilter = Number(categoryFilterRaw);
+      if (!Number.isInteger(parsedCategoryFilter)) {
+        return res.status(400).json({
+          status: false,
+          message: 'category_id filter must be an integer'
+        });
+      }
+      query.category_id = parsedCategoryFilter;
     }
 
     const totalFeedback = await feedback.countDocuments(query);
@@ -2544,8 +2862,16 @@ router.get('/admin/feedback', admin_checking, async function(req, res, next) {
           .filter((id: number) => Number.isInteger(id))
       )
     );
+    const categoryIds = Array.from(
+      new Set(
+        feedbackList
+          .map((item: any) => Number(item.category_id))
+          .filter((id: number) => Number.isInteger(id))
+      )
+    );
 
     let userMap = new Map<number, any>();
+    let categoryMap = new Map<number, any>();
 
     if (userIds.length > 0) {
       const usersInfo = await user
@@ -2555,9 +2881,18 @@ router.get('/admin/feedback', admin_checking, async function(req, res, next) {
       userMap = new Map(usersInfo.map((info: any) => [info._id, info]));
     }
 
+    if (categoryIds.length > 0) {
+      const categoriesInfo = await feedbackCategory
+        .find({ _id: { $in: categoryIds } }, { _id: 1, category_name: 1 })
+        .lean();
+
+      categoryMap = new Map(categoriesInfo.map((info: any) => [info._id, info]));
+    }
+
     const feedbackWithUser = feedbackList.map((item: any) => ({
       ...item,
-      user: userMap.get(Number(item.user_id)) || null
+      user: userMap.get(Number(item.user_id)) || null,
+      category: categoryMap.get(Number(item.category_id)) || null
     }));
 
     logger.info(`Admin ${req.username} fetched feedback list - page ${page}, limit ${limit}`);
@@ -2609,6 +2944,7 @@ router.get('/admin/feedback/:id', admin_checking, async function(req, res, next)
     }
 
     let feedbackOwner: any = null;
+    let feedbackCategoryDetail: any = null;
 
     if (Number.isInteger(Number(feedbackDetail.user_id))) {
       feedbackOwner = await user
@@ -2619,6 +2955,12 @@ router.get('/admin/feedback/:id', admin_checking, async function(req, res, next)
         .lean();
     }
 
+    if (Number.isInteger(Number(feedbackDetail.category_id))) {
+      feedbackCategoryDetail = await feedbackCategory
+        .findOne({ _id: Number(feedbackDetail.category_id) }, { _id: 1, category_name: 1 })
+        .lean();
+    }
+
     logger.info(`Admin ${req.username} fetched feedback detail: ${feedbackId}`);
 
     return res.status(200).json({
@@ -2626,7 +2968,8 @@ router.get('/admin/feedback/:id', admin_checking, async function(req, res, next)
       message: 'Feedback detail retrieved successfully',
       data: {
         feedback: feedbackDetail,
-        user: feedbackOwner
+        user: feedbackOwner,
+        category: feedbackCategoryDetail
       }
     });
   } catch (err) {
@@ -2651,7 +2994,7 @@ router.post('/admin/feedback/:id', admin_checking, async function(req, res, next
       });
     }
 
-    const allowedFields = ['feedback_content', 'feedback_response'];
+    const allowedFields = ['subject', 'feedback_content', 'feedback_response', 'status', 'category_id'];
     const updates: Record<string, any> = {};
 
     allowedFields.forEach((field) => {
@@ -2671,11 +3014,58 @@ router.post('/admin/feedback/:id', admin_checking, async function(req, res, next
       });
     }
 
+    if (typeof updates.subject !== 'undefined') {
+      if (typeof updates.subject !== 'string' || !updates.subject.trim()) {
+        return res.status(400).json({
+          status: false,
+          message: 'subject must be a non-empty string when provided'
+        });
+      }
+      updates.subject = updates.subject.trim();
+    }
+
     if (typeof updates.feedback_content !== 'undefined' && !updates.feedback_content) {
       return res.status(400).json({
         status: false,
         message: 'feedback_content cannot be empty'
       });
+    }
+
+    if (typeof updates.status !== 'undefined') {
+      if (typeof updates.status !== 'string' || !updates.status.trim()) {
+        return res.status(400).json({
+          status: false,
+          message: 'status must be a non-empty string when provided'
+        });
+      }
+      updates.status = updates.status.trim();
+    }
+
+    if (typeof updates.category_id !== 'undefined') {
+      if (updates.category_id === null || updates.category_id === '') {
+        return res.status(400).json({
+          status: false,
+          message: 'category_id must be provided when specified'
+        });
+      }
+
+      const parsedCategoryId = Number(updates.category_id);
+      if (!Number.isInteger(parsedCategoryId)) {
+        return res.status(400).json({
+          status: false,
+          message: 'category_id must be an integer'
+        });
+      }
+
+      const categoryDetail = await feedbackCategory.findOne({ _id: parsedCategoryId }).lean();
+      if (!categoryDetail) {
+        return res.status(400).json({
+          status: false,
+          message: 'Feedback category not found'
+        });
+      }
+
+      updates.category_id = parsedCategoryId;
     }
 
     const feedbackDetail = await feedback.findOne({ _id: feedbackId }).lean();
@@ -3677,6 +4067,7 @@ try{
 catch(err)
 { 
   console.log('Solve rubik exception:'+err.message);
+  
 }
 });
 
@@ -3687,7 +4078,7 @@ router.get('/download_img',async function(req,res,next)
   console.log('This api has been called');
   const url='https://rubiks.com/en-US/products/';
   var imageList=await downloadImageFromUrl(url,'');
-  console.log("The size of image list is:"+imageList.length);
+  console.log("The size of image list is:"+imageList.length);  
   if(imageList!=null)
   {
     imageList.forEach((val,idx)=>
@@ -3696,12 +4087,12 @@ router.get('/download_img',async function(req,res,next)
   }
   else
   {
-    console.log('The Image List is null');
+    console.log('The Image List is null');    
   }
   }
   catch(error)
   {
-    console.log('get img error:'+error.message);
+    console.log('get img error:'+error.message);    
   }
 });
 

@@ -125,15 +125,30 @@ const rubikType=mongoose.model('rubikType',rubikTypeSchema,'RubikType');
 const feedbackSchema = new Schema({
  _id:{type:Number,required:true},
  user_id:{type:Number,required:true},
+ subject:{type:String,required:true},
  feedback_content:{type:String,required:true},
  feedback_response:{type:String,required:false},
+ category_id:{type:Number,required:true},
+ status:{type:String,required:true},
  created_date:{type:String,required:true},
  updated_date:{type:String,required:true}
 });
 
+const feedbackCategorySchema = new Schema({
+ _id:{type:Number,required:true},
+ category_name:{type:String,required:true},
+ created_date:{type:String,required:true},
+ updated_date:{type:String,required:true}
+});
+
+feedbackCategorySchema.plugin(autoIncrement.plugin,'feedbackCategory');
+
+const feedbackCategory=mongoose.model('feedbackCategory',feedbackCategorySchema,'FeedbackCategory');
+
 feedbackSchema.plugin(autoIncrement.plugin,'feedback');
 
 const feedback=mongoose.model('feedback',feedbackSchema,'Feedback');
+
 
 const deviceSchema = new Schema(
 {
@@ -207,7 +222,7 @@ const image_detail=mongoose.model('detailImage',detailImageSchema,'DetailImage')
 const role=mongoose.model('role',roleSchema,'Role');
 
 
-export {user,question_level,room_user,user_room_detail,single_board_detail,rubik_info,image_detail,session,temp_device,device,rubikProblem,social_account,rubikProblemDetail,category,rubikType,feedback,role}; 
+export {user,question_level,room_user,user_room_detail,single_board_detail,rubik_info,image_detail,session,temp_device,device,rubikProblem,social_account,rubikProblemDetail,category,rubikType,feedback,feedbackCategory,role}; 
 
 
 
